@@ -91,6 +91,7 @@
     <ClCompile Include="Src\TestSuite.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\Matrix.hpp" />
     <ClInclude Include="Src\Vector.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
