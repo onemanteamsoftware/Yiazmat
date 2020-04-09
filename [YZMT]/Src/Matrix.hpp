@@ -5,4 +5,9 @@
 #include "Vector.hpp"
 
 namespace YZMT {
+    struct mat3 {
+    };
+    
+    struct mat4 {
+    };
 }
