@@ -13,6 +13,7 @@ namespace YZMT {
         explicit vec2(float x, float y = 0.0f) : x { x }, y { y } {}
         
         vec2& operator*=(float s) { x *= s; y *= s; return *this; }
+        vec2& operator/=(float s) { x /= s; y /= s; return *this; }
     };
     
     struct vec3 {
@@ -27,6 +28,7 @@ namespace YZMT {
         vec3(float x, float y, float z = 0.0f) : x { x }, y { y }, z { z } {}
         
         vec3& operator*=(float s) { x *= s; y *= s; z *= s; return *this; }
+        vec3& operator/=(float s) { x /= s; y /= s; z /= s; return *this; }
     };
     
     struct vec4 {
@@ -41,5 +43,6 @@ namespace YZMT {
         vec4(float x, float y, float z, float w = 0.0f) : x { x }, y { y }, z { z }, w { w } {}
         
         vec4& operator*=(float s) { x *= s; y *= s; z *= s; w *= s; return *this; }
+        vec4& operator/=(float s) { x /= s; y /= s; z /= s; w /= s; return *this; }
     };
 }
