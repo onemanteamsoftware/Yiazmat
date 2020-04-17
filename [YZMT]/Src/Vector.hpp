@@ -22,6 +22,8 @@ namespace YZMT {
     
     inline vec2 operator*(float s, const vec2& v) { return vec2(v.x * s, v.y * s); }
     inline vec2 operator*(const vec2& v, float s) { return vec2(v.x * s, v.y * s); }
+    inline vec2 operator/(float s, const vec2& v) { return vec2(v.x / s, v.y / s); }
+    inline vec2 operator/(const vec2& v, float s) { return vec2(v.x / s, v.y / s); }
     
     struct vec3 {
         union {
@@ -42,6 +44,8 @@ namespace YZMT {
     
     inline vec3 operator*(float s, const vec3& v) { return vec3(v.x * s, v.y * s, v.z * s); }
     inline vec3 operator*(const vec3& v, float s) { return vec3(v.x * s, v.y * s, v.z * s); }
+    inline vec3 operator/(float s, const vec3& v) { return vec3(v.x / s, v.y / s, v.z / s); }
+    inline vec3 operator/(const vec3& v, float s) { return vec3(v.x / s, v.y / s, v.z / s); }
     
     struct vec4 {
         union {
@@ -62,4 +66,6 @@ namespace YZMT {
     
     inline vec4 operator*(float s, const vec4& v) { return vec4(v.x * s, v.y * s, v.z * s, v.w * s); }
     inline vec4 operator*(const vec4& v, float s) { return vec4(v.x * s, v.y * s, v.z * s, v.w * s); }
+    inline vec4 operator/(float s, const vec4& v) { return vec4(v.x / s, v.y / s, v.z / s, v.w / s); }
+    inline vec4 operator/(const vec4& v, float s) { return vec4(v.x / s, v.y / s, v.z / s, v.w / s); }
 }
