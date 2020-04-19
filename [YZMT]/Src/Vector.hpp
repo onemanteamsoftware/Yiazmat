@@ -20,6 +20,7 @@ namespace YZMT {
         vec2& operator/=(float s) { x /= s; y /= s; return *this; }
         
         vec2& operator+=(const vec2& v) { x += v.x; y += v.y; return *this; }
+        vec2& operator-=(const vec2& v) { x -= v.x; y -= v.y; return *this; }
     };
     
     inline vec2 operator*(float s, const vec2& v) { return vec2(v.x * s, v.y * s); }
@@ -44,6 +45,7 @@ namespace YZMT {
         vec3& operator/=(float s) { x /= s; y /= s; z /= s; return *this; }
         
         vec3& operator+=(const vec3& v) { x += v.x; y += v.y; z += v.z; return *this; }
+        vec3& operator-=(const vec3& v) { x -= v.x; y -= v.y; z -= v.z; return *this; }
     };
     
     inline vec3 operator*(float s, const vec3& v) { return vec3(v.x * s, v.y * s, v.z * s); }
@@ -68,6 +70,7 @@ namespace YZMT {
         vec4& operator/=(float s) { x /= s; y /= s; z /= s; w /= s; return *this; }
         
         vec4& operator+=(const vec4& v) { x += v.x; y += v.y; z += v.z; w += v.w; return *this; }
+        vec4& operator-=(const vec4& v) { x -= v.x; y -= v.y; z -= v.z; w -= v.w; return *this; }
     };
     
     inline vec4 operator*(float s, const vec4& v) { return vec4(v.x * s, v.y * s, v.z * s, v.w * s); }
