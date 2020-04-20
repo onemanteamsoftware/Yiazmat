@@ -16,6 +16,8 @@ namespace YZMT {
         
         float Magnitude() const { return std::sqrt(x * x + y * y); }
         
+        vec2 operator+(const vec2& v) const { return vec2(x + v.x, y + v.y); }
+        
         vec2& operator*=(float s) { x *= s; y *= s; return *this; }
         vec2& operator/=(float s) { x /= s; y /= s; return *this; }
         
@@ -41,6 +43,8 @@ namespace YZMT {
         
         float Magnitude() const { return std::sqrt(x * x + y * y + z * z); }
         
+        vec3 operator+(const vec3& v) const { return vec3(x + v.x, y + v.y, z + v.z); }
+        
         vec3& operator*=(float s) { x *= s; y *= s; z *= s; return *this; }
         vec3& operator/=(float s) { x /= s; y /= s; z /= s; return *this; }
         
@@ -65,6 +69,8 @@ namespace YZMT {
         vec4(float x, float y, float z, float w = 0.0f) : x { x }, y { y }, z { z }, w { w } {}
         
         float Magnitude() const { return std::sqrt(x * x + y * y + z * z + w * w); }
+        
+        vec4 operator+(const vec4& v) const { return vec4(x + v.x, y + v.y, z + v.z, w + v.w); }
         
         vec4& operator*=(float s) { x *= s; y *= s; z *= s; w *= s; return *this; }
         vec4& operator/=(float s) { x /= s; y /= s; z /= s; w /= s; return *this; }
