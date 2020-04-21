@@ -14,6 +14,7 @@ namespace YZMT {
         vec2() : x { 0.0f }, y { 0.0f } {}
         explicit vec2(float x, float y = 0.0f) : x { x }, y { y } {}
         
+        float Dot(const vec2& v) const { return x * v.x + y * v.y; }
         float Magnitude() const { return std::sqrt(x * x + y * y); }
         
         vec2 operator+(const vec2& v) const { return vec2(x + v.x, y + v.y); }
@@ -42,6 +43,7 @@ namespace YZMT {
         vec3(const vec2& v, float z = 0.0f) : x { v.x }, y { v.y }, z { z } {}
         vec3(float x, float y, float z = 0.0f) : x { x }, y { y }, z { z } {}
         
+        float Dot(const vec3& v) const { return x * v.x + y * v.y + z * v.z; }
         float Magnitude() const { return std::sqrt(x * x + y * y + z * z); }
         
         vec3 operator+(const vec3& v) const { return vec3(x + v.x, y + v.y, z + v.z); }
@@ -70,6 +72,7 @@ namespace YZMT {
         vec4(const vec3& v, float w = 0.0f) : x { v.x }, y { v.y }, z { v.z }, w { w } {}
         vec4(float x, float y, float z, float w = 0.0f) : x { x }, y { y }, z { z }, w { w } {}
         
+        float Dot(const vec4& v) const { return x * v.x + y * v.y + z * v.z + w * v.w; }
         float Magnitude() const { return std::sqrt(x * x + y * y + z * z + w * w); }
         
         vec4 operator+(const vec4& v) const { return vec4(x + v.x, y + v.y, z + v.z, w + v.w); }
