@@ -17,6 +17,8 @@ namespace YZMT {
         float Dot(const vec2& v) const { return x * v.x + y * v.y; }
         float Magnitude() const { return std::sqrt(x * x + y * y); }
         
+        vec2 operator-() const { return vec2(-x, -y); }
+        
         vec2 operator+(const vec2& v) const { return vec2(x + v.x, y + v.y); }
         vec2 operator-(const vec2& v) const { return vec2(x - v.x, y - v.y); }
         
@@ -46,6 +48,8 @@ namespace YZMT {
         float Dot(const vec3& v) const { return x * v.x + y * v.y + z * v.z; }
         float Magnitude() const { return std::sqrt(x * x + y * y + z * z); }
         
+        vec3 operator-() const { return vec3(-x, -y, -z); }
+        
         vec3 operator+(const vec3& v) const { return vec3(x + v.x, y + v.y, z + v.z); }
         vec3 operator-(const vec3& v) const { return vec3(x - v.x, y - v.y, z - v.z); }
         
@@ -74,6 +78,8 @@ namespace YZMT {
         
         float Dot(const vec4& v) const { return x * v.x + y * v.y + z * v.z + w * v.w; }
         float Magnitude() const { return std::sqrt(x * x + y * y + z * z + w * w); }
+        
+        vec4 operator-() const { return vec4(-x, -y, -z, -w); }
         
         vec4 operator+(const vec4& v) const { return vec4(x + v.x, y + v.y, z + v.z, w + v.w); }
         vec4 operator-(const vec4& v) const { return vec4(x - v.x, y - v.y, z - v.z, w - v.w); }
