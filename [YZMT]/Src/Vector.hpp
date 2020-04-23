@@ -45,6 +45,7 @@ namespace YZMT {
         vec3(const vec2& v, float z = 0.0f) : x { v.x }, y { v.y }, z { z } {}
         vec3(float x, float y, float z = 0.0f) : x { x }, y { y }, z { z } {}
         
+        vec3 Cross(const vec3& v) const { return vec3(y * v.z - z * v.y, z * v.x - x * v.z, x * v.y - y * v.x); }
         float Dot(const vec3& v) const { return x * v.x + y * v.y + z * v.z; }
         float Magnitude() const { return std::sqrt(x * x + y * y + z * z); }
         
