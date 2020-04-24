@@ -16,6 +16,7 @@ namespace YZMT {
         
         float Dot(const vec2& v) const { return x * v.x + y * v.y; }
         float Magnitude() const { return std::sqrt(x * x + y * y); }
+        vec2 Normalize() const { float m = Magnitude(); return vec2(x / m, y / m); }
         
         vec2 operator-() const { return vec2(-x, -y); }
         
@@ -48,6 +49,7 @@ namespace YZMT {
         vec3 Cross(const vec3& v) const { return vec3(y * v.z - z * v.y, z * v.x - x * v.z, x * v.y - y * v.x); }
         float Dot(const vec3& v) const { return x * v.x + y * v.y + z * v.z; }
         float Magnitude() const { return std::sqrt(x * x + y * y + z * z); }
+        vec3 Normalize() const { float m = Magnitude(); return vec3(x / m, y / m, z / m); }
         
         vec3 operator-() const { return vec3(-x, -y, -z); }
         
@@ -79,6 +81,7 @@ namespace YZMT {
         
         float Dot(const vec4& v) const { return x * v.x + y * v.y + z * v.z + w * v.w; }
         float Magnitude() const { return std::sqrt(x * x + y * y + z * z + w * w); }
+        vec4 Normalize() const { float m = Magnitude(); return vec4(x / m, y / m, z / m, w / m); }
         
         vec4 operator-() const { return vec4(-x, -y, -z, -w); }
         
