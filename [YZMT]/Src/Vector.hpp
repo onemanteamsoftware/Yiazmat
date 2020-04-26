@@ -24,6 +24,7 @@ namespace YZMT {
         vec2 operator-(const vec2& v) const { return vec2(x - v.x, y - v.y); }
         
         bool operator==(const vec2& v) const { return x == v.x && y == v.y; }
+        bool operator!=(const vec2& v) const { return !(*this == v); }
         
         vec2& operator*=(float s) { x *= s; y *= s; return *this; }
         vec2& operator/=(float s) { x /= s; y /= s; return *this; }
@@ -59,6 +60,7 @@ namespace YZMT {
         vec3 operator-(const vec3& v) const { return vec3(x - v.x, y - v.y, z - v.z); }
         
         bool operator==(const vec3& v) const { return x == v.x && y == v.y && z == v.z; }
+        bool operator!=(const vec3& v) const { return !(*this == v); }
         
         vec3& operator*=(float s) { x *= s; y *= s; z *= s; return *this; }
         vec3& operator/=(float s) { x /= s; y /= s; z /= s; return *this; }
@@ -93,6 +95,7 @@ namespace YZMT {
         vec4 operator-(const vec4& v) const { return vec4(x - v.x, y - v.y, z - v.z, w - v.w); }
         
         bool operator==(const vec4& v) const { return x == v.x && y == v.y && z == v.z && w == v.w; }
+        bool operator!=(const vec4& v) const { return !(*this == v); }
         
         vec4& operator*=(float s) { x *= s; y *= s; z *= s; w *= s; return *this; }
         vec4& operator/=(float s) { x /= s; y /= s; z /= s; w /= s; return *this; }
