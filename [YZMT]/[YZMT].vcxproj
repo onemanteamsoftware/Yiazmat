@@ -90,6 +90,7 @@
   <ItemGroup>
     <ClCompile Include="Src\Matrix.cpp" />
     <ClCompile Include="Src\TestSuite.cpp" />
+    <ClCompile Include="Src\Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Matrix.hpp" />

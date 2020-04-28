@@ -5,38 +5,34 @@
 #include <cmath>
 
 namespace YZMT {
-    struct vec2 {
+    struct vec2 final {
         union {
             struct { float x; float y; };
             float v[2];
         };
         
-        vec2() : x { 0.0f }, y { 0.0f } {}
-        explicit vec2(float x, float y = 0.0f) : x { x }, y { y } {}
+        vec2();
+        explicit vec2(float x, float y = 0.0f);
         
-        float Dot(const vec2& v) const { return x * v.x + y * v.y; }
-        float Magnitude() const { return std::sqrt(x * x + y * y); }
-        vec2 Normalize() const { float m = Magnitude(); return vec2(x / m, y / m); }
+        float Dot(const vec2& v) const;
+        float Magnitude() const;
+        vec2 Normalize() const;
         
-        vec2 operator-() const { return vec2(-x, -y); }
+        vec2 operator-() const;
         
-        vec2 operator+(const vec2& v) const { return vec2(x + v.x, y + v.y); }
-        vec2 operator-(const vec2& v) const { return vec2(x - v.x, y - v.y); }
+        vec2 operator*(float s) const;
+        vec2 operator/(float s) const;
+        vec2 operator+(const vec2& v) const;
+        vec2 operator-(const vec2& v) const;
         
-        bool operator==(const vec2& v) const { return x == v.x && y == v.y; }
-        bool operator!=(const vec2& v) const { return !(*this == v); }
+        bool operator==(const vec2& v) const;
+        bool operator!=(const vec2& v) const;
         
-        vec2& operator*=(float s) { x *= s; y *= s; return *this; }
-        vec2& operator/=(float s) { x /= s; y /= s; return *this; }
-        
-        vec2& operator+=(const vec2& v) { x += v.x; y += v.y; return *this; }
-        vec2& operator-=(const vec2& v) { x -= v.x; y -= v.y; return *this; }
+        vec2& operator*=(float s);
+        vec2& operator/=(float s);
+        vec2& operator+=(const vec2& v);
+        vec2& operator-=(const vec2& v);
     };
-    
-    inline vec2 operator*(float s, const vec2& v) { return vec2(v.x * s, v.y * s); }
-    inline vec2 operator*(const vec2& v, float s) { return vec2(v.x * s, v.y * s); }
-    inline vec2 operator/(float s, const vec2& v) { return vec2(v.x / s, v.y / s); }
-    inline vec2 operator/(const vec2& v, float s) { return vec2(v.x / s, v.y / s); }
     
     struct vec3 {
         union {
