@@ -5,21 +5,21 @@
 #include "Vector.hpp"
 
 namespace YZMT {
-    struct mat3 {
+    struct mat3 final {
         union {
             float Elements[3 * 3];
             vec3 Columns[3];
         };
         
-        mat3() : Elements { 0.0f } {}
+        mat3();
     };
     
-    struct mat4 {
+    struct mat4 final {
         union {
             float Elements[4 * 4];
             vec4 Columns[4];
         };
         
-        mat4() : Elements { 0.0f } {}
+        mat4();
     };
 }

@@ -88,6 +88,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Src\Matrix.cpp" />
     <ClCompile Include="Src\TestSuite.cpp" />
   </ItemGroup>
   <ItemGroup>
