@@ -34,41 +34,37 @@ namespace YZMT {
         vec2& operator-=(const vec2& v);
     };
     
-    struct vec3 {
+    struct vec3 final {
         union {
             struct { float x; float y; float z; };
             struct { vec2 xy; float z; };
             float v[3];
         };
         
-        vec3() : x { 0.0f }, y { 0.0f }, z { 0.0f } {}
-        vec3(const vec2& v, float z = 0.0f) : x { v.x }, y { v.y }, z { z } {}
-        vec3(float x, float y, float z = 0.0f) : x { x }, y { y }, z { z } {}
+        vec3();
+        vec3(const vec2& v, float z = 0.0f);
+        vec3(float x, float y, float z = 0.0f);
         
-        vec3 Cross(const vec3& v) const { return vec3(y * v.z - z * v.y, z * v.x - x * v.z, x * v.y - y * v.x); }
-        float Dot(const vec3& v) const { return x * v.x + y * v.y + z * v.z; }
-        float Magnitude() const { return std::sqrt(x * x + y * y + z * z); }
-        vec3 Normalize() const { float m = Magnitude(); return vec3(x / m, y / m, z / m); }
+        vec3 Cross(const vec3& v) const;
+        float Dot(const vec3& v) const;
+        float Magnitude() const;
+        vec3 Normalize() const;
         
-        vec3 operator-() const { return vec3(-x, -y, -z); }
+        vec3 operator-() const;
         
-        vec3 operator+(const vec3& v) const { return vec3(x + v.x, y + v.y, z + v.z); }
-        vec3 operator-(const vec3& v) const { return vec3(x - v.x, y - v.y, z - v.z); }
+        vec3 operator*(float s) const;
+        vec3 operator/(float s) const;
+        vec3 operator+(const vec3& v) const;
+        vec3 operator-(const vec3& v) const;
         
-        bool operator==(const vec3& v) const { return x == v.x && y == v.y && z == v.z; }
-        bool operator!=(const vec3& v) const { return !(*this == v); }
+        bool operator==(const vec3& v) const;
+        bool operator!=(const vec3& v) const;
         
-        vec3& operator*=(float s) { x *= s; y *= s; z *= s; return *this; }
-        vec3& operator/=(float s) { x /= s; y /= s; z /= s; return *this; }
-        
-        vec3& operator+=(const vec3& v) { x += v.x; y += v.y; z += v.z; return *this; }
-        vec3& operator-=(const vec3& v) { x -= v.x; y -= v.y; z -= v.z; return *this; }
+        vec3& operator*=(float s);
+        vec3& operator/=(float s);
+        vec3& operator+=(const vec3& v);
+        vec3& operator-=(const vec3& v);
     };
-    
-    inline vec3 operator*(float s, const vec3& v) { return vec3(v.x * s, v.y * s, v.z * s); }
-    inline vec3 operator*(const vec3& v, float s) { return vec3(v.x * s, v.y * s, v.z * s); }
-    inline vec3 operator/(float s, const vec3& v) { return vec3(v.x / s, v.y / s, v.z / s); }
-    inline vec3 operator/(const vec3& v, float s) { return vec3(v.x / s, v.y / s, v.z / s); }
     
     struct vec4 {
         union {
