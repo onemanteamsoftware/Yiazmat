@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Src\TestSuite.cpp">
+    <ClCompile Include="Src\Matrix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Matrix.cpp">
+    <ClCompile Include="Src\TestSuite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Src\Vector.cpp">
@@ -26,10 +26,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\Vector.hpp">
+    <ClInclude Include="Src\Matrix.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Matrix.hpp">
+    <ClInclude Include="Src\Vector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
