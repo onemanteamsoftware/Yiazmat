@@ -2,8 +2,6 @@
 /*github.com/onemanteamsoftware*/
 #pragma once
 
-#include <cmath>
-
 namespace YZMT {
     struct vec2 final {
         union {
@@ -66,38 +64,34 @@ namespace YZMT {
         vec3& operator-=(const vec3& v);
     };
     
-    struct vec4 {
+    struct vec4 final {
         union {
             struct { float x; float y; float z; float w; };
             struct { vec3 xyz; float w; };
             float v[4];
         };
         
-        vec4() : x { 0.0f }, y { 0.0f }, z { 0.0f }, w { 0.0f } {}
-        vec4(const vec3& v, float w = 0.0f) : x { v.x }, y { v.y }, z { v.z }, w { w } {}
-        vec4(float x, float y, float z, float w = 0.0f) : x { x }, y { y }, z { z }, w { w } {}
+        vec4();
+        vec4(const vec3& v, float w = 0.0f);
+        vec4(float x, float y, float z, float w = 0.0f);
         
-        float Dot(const vec4& v) const { return x * v.x + y * v.y + z * v.z + w * v.w; }
-        float Magnitude() const { return std::sqrt(x * x + y * y + z * z + w * w); }
-        vec4 Normalize() const { float m = Magnitude(); return vec4(x / m, y / m, z / m, w / m); }
+        float Dot(const vec4& v) const;
+        float Magnitude() const;
+        vec4 Normalize() const;
         
-        vec4 operator-() const { return vec4(-x, -y, -z, -w); }
+        vec4 operator-() const;
         
-        vec4 operator+(const vec4& v) const { return vec4(x + v.x, y + v.y, z + v.z, w + v.w); }
-        vec4 operator-(const vec4& v) const { return vec4(x - v.x, y - v.y, z - v.z, w - v.w); }
+        vec4 operator*(float s) const;
+        vec4 operator/(float s) const;
+        vec4 operator+(const vec4& v) const;
+        vec4 operator-(const vec4& v) const;
         
-        bool operator==(const vec4& v) const { return x == v.x && y == v.y && z == v.z && w == v.w; }
-        bool operator!=(const vec4& v) const { return !(*this == v); }
+        bool operator==(const vec4& v) const;
+        bool operator!=(const vec4& v) const;
         
-        vec4& operator*=(float s) { x *= s; y *= s; z *= s; w *= s; return *this; }
-        vec4& operator/=(float s) { x /= s; y /= s; z /= s; w /= s; return *this; }
-        
-        vec4& operator+=(const vec4& v) { x += v.x; y += v.y; z += v.z; w += v.w; return *this; }
-        vec4& operator-=(const vec4& v) { x -= v.x; y -= v.y; z -= v.z; w -= v.w; return *this; }
+        vec4& operator*=(float s);
+        vec4& operator/=(float s);
+        vec4& operator+=(const vec4& v);
+        vec4& operator-=(const vec4& v);
     };
-    
-    inline vec4 operator*(float s, const vec4& v) { return vec4(v.x * s, v.y * s, v.z * s, v.w * s); }
-    inline vec4 operator*(const vec4& v, float s) { return vec4(v.x * s, v.y * s, v.z * s, v.w * s); }
-    inline vec4 operator/(float s, const vec4& v) { return vec4(v.x / s, v.y / s, v.z / s, v.w / s); }
-    inline vec4 operator/(const vec4& v, float s) { return vec4(v.x / s, v.y / s, v.z / s, v.w / s); }
 }
