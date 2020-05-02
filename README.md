@@ -1,10 +1,13 @@
 # [YZMT]
 
-+ Single precision floating point Direction Vector with 2, 3 or 4 components:
-  - [x] Cross Product [vec3]
-  - [x] Dot Product
+Single precision floating point:
+
++ Direction Vectors [vec2, vec3, vec4]
+  - [x] Cross/Dot Product
   - [x] Equality/Inequality
   - [x] Magnitude/Normalize
   - [x] Negation
   - [x] Scalar Division/Multiplication
   - [x] Vector Addition/Subtraction
+
++ Square Matrices [mat3, mat4]
