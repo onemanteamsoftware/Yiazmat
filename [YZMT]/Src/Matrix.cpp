@@ -18,6 +18,10 @@ namespace YZMT {
         : Columns { v0, v1, v2 } {
     }
     
+    mat3 mat3::Identity() {
+        return mat3(1.0f);
+    }
+    
     mat4::mat4()
         : Elements { 0.0f } {
     }
@@ -32,5 +36,9 @@ namespace YZMT {
     
     mat4::mat4(const vec4& v0, const vec4& v1, const vec4& v2, const vec4& v3)
         : Columns { v0, v1, v2, v3 } {
+    }
+    
+    mat4 mat4::Identity() {
+        return mat4(1.0f);
     }
 }
