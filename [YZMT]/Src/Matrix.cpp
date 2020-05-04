@@ -19,7 +19,7 @@ namespace YZMT {
     }
     
     mat3 mat3::Identity() {
-        return mat3(1.0f);
+        return mat3 { 1.0f };
     }
     
     mat4::mat4()
@@ -39,6 +39,6 @@ namespace YZMT {
     }
     
     mat4 mat4::Identity() {
-        return mat4(1.0f);
+        return mat4 { 1.0f };
     }
 }
