@@ -16,6 +16,7 @@ namespace YZMT {
         mat3(const vec3& v0, const vec3& v1, const vec3& v2);
         
         static mat3 Identity();
+        static mat3 Translate(const vec2& v);
     };
     
     struct mat4 final {
@@ -29,5 +30,6 @@ namespace YZMT {
         mat4(const vec4& v0, const vec4& v1, const vec4& v2, const vec4& v3);
         
         static mat4 Identity();
+        static mat4 Translate(const vec3& v);
     };
 }
