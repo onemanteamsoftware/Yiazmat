@@ -22,6 +22,14 @@ namespace YZMT {
         return mat3 { 1.0f };
     }
     
+    mat3 mat3::Scale(const vec2& v) {
+        mat3 Result {};
+        Result.Elements[0 + 0 * 3] = v.x;
+        Result.Elements[1 + 1 * 3] = v.y;
+        Result.Elements[2 + 2 * 3] = 1.0f;
+        return Result;
+    }
+    
     mat3 mat3::Translate(const vec2& v) {
         mat3 Result { 1.0f };
         Result.Elements[0 + 2 * 3] = v.x;
@@ -47,6 +55,15 @@ namespace YZMT {
     
     mat4 mat4::Identity() {
         return mat4 { 1.0f };
+    }
+    
+    mat4 mat4::Scale(const vec3& v) {
+        mat4 Result {};
+        Result.Elements[0 + 0 * 4] = v.x;
+        Result.Elements[1 + 1 * 4] = v.y;
+        Result.Elements[2 + 2 * 4] = v.z;
+        Result.Elements[3 + 3 * 4] = 1.0f;
+        return Result;
     }
     
     mat4 mat4::Translate(const vec3& v) {

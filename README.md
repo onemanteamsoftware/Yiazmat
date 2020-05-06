@@ -11,4 +11,4 @@ Single precision floating point:
   - [x] Vector Addition/Subtraction
 
 + Square Matrices [mat3, mat4]
-  - [x] Identity/Translate
+  - [x] Identity/Scale/Translate
