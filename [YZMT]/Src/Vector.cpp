@@ -13,6 +13,14 @@ namespace YZMT {
         : x { x }, y { y } {
     }
     
+    vec2 vec2::xAxis() {
+        return vec2 { 1.0f, 0.0f };
+    }
+    
+    vec2 vec2::yAxis() {
+        return vec2 { 0.0f, 1.0f };
+    }
+    
     float vec2::Dot(const vec2& v) const {
         return x * v.x + y * v.y;
     }

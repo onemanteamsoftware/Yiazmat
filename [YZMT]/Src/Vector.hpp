@@ -12,6 +12,9 @@ namespace YZMT {
         vec2();
         explicit vec2(float x, float y = 0.0f);
         
+        static vec2 xAxis();
+        static vec2 yAxis();
+        
         float Dot(const vec2& v) const;
         float Magnitude() const;
         vec2 Normalize() const;
