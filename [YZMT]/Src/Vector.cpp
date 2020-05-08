@@ -106,6 +106,18 @@ namespace YZMT {
         : x { x }, y { y }, z { z } {
     }
     
+    vec3 vec3::xAxis() {
+        return vec3 { 1.0f, 0.0f, 0.0f };
+    }
+    
+    vec3 vec3::yAxis() {
+        return vec3 { 0.0f, 1.0f, 0.0f };
+    }
+    
+    vec3 vec3::zAxis() {
+        return vec3 { 0.0f, 0.0f, 1.0f };
+    }
+    
     vec3 vec3::Cross(const vec3& v) const {
         return vec3 { y * v.z - z * v.y, z * v.x - x * v.z, x * v.y - y * v.x };
     }

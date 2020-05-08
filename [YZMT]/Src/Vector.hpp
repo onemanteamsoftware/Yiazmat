@@ -46,6 +46,10 @@ namespace YZMT {
         vec3(const vec2& v, float z = 0.0f);
         vec3(float x, float y, float z = 0.0f);
         
+        static vec3 xAxis();
+        static vec3 yAxis();
+        static vec3 zAxis();
+        
         vec3 Cross(const vec3& v) const;
         float Dot(const vec3& v) const;
         float Magnitude() const;
