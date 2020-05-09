@@ -211,6 +211,18 @@ namespace YZMT {
         : x { x }, y { y }, z { z }, w { w } {
     }
     
+    vec4 vec4::xAxis() {
+        return vec4 { 1.0f, 0.0f, 0.0f, 0.0f };
+    }
+    
+    vec4 vec4::yAxis() {
+        return vec4 { 0.0f, 1.0f, 0.0f, 0.0f };
+    }
+    
+    vec4 vec4::zAxis() {
+        return vec4 { 0.0f, 0.0f, 1.0f, 0.0f };
+    }
+    
     float vec4::Dot(const vec4& v) const {
         return x * v.x + y * v.y + z * v.z + w * v.w;
     }

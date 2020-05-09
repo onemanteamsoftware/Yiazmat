@@ -82,6 +82,10 @@ namespace YZMT {
         vec4(const vec3& v, float w = 0.0f);
         vec4(float x, float y, float z, float w = 0.0f);
         
+        static vec4 xAxis();
+        static vec4 yAxis();
+        static vec4 zAxis();
+        
         float Dot(const vec4& v) const;
         float Magnitude() const;
         vec4 Normalize() const;
