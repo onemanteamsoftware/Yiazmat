@@ -30,10 +30,25 @@ namespace YZMT {
         return Result;
     }
     
+    mat3 mat3::Scale(float x, float y) {
+        mat3 Result {};
+        Result.Elements[0 + 0 * 3] = x;
+        Result.Elements[1 + 1 * 3] = y;
+        Result.Elements[2 + 2 * 3] = 1.0f;
+        return Result;
+    }
+    
     mat3 mat3::Translate(const vec2& v) {
         mat3 Result { 1.0f };
         Result.Elements[0 + 2 * 3] = v.x;
         Result.Elements[1 + 2 * 3] = v.y;
+        return Result;
+    }
+    
+    mat3 mat3::Translate(float x, float y) {
+        mat3 Result { 1.0f };
+        Result.Elements[0 + 2 * 3] = x;
+        Result.Elements[1 + 2 * 3] = y;
         return Result;
     }
     

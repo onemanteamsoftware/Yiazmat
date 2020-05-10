@@ -17,7 +17,9 @@ namespace YZMT {
         
         static mat3 Identity();
         static mat3 Scale(const vec2& v);
+        static mat3 Scale(float x, float y);
         static mat3 Translate(const vec2& v);
+        static mat3 Translate(float x, float y);
     };
     
     struct mat4 final {
