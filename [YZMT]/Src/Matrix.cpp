@@ -81,11 +81,28 @@ namespace YZMT {
         return Result;
     }
     
+    mat4 mat4::Scale(float x, float y, float z) {
+        mat4 Result {};
+        Result.Elements[0 + 0 * 4] = x;
+        Result.Elements[1 + 1 * 4] = y;
+        Result.Elements[2 + 2 * 4] = z;
+        Result.Elements[3 + 3 * 4] = 1.0f;
+        return Result;
+    }
+    
     mat4 mat4::Translate(const vec3& v) {
         mat4 Result { 1.0f };
         Result.Elements[0 + 3 * 4] = v.x;
         Result.Elements[1 + 3 * 4] = v.y;
         Result.Elements[2 + 3 * 4] = v.z;
+        return Result;
+    }
+    
+    mat4 mat4::Translate(float x, float y, float z) {
+        mat4 Result { 1.0f };
+        Result.Elements[0 + 3 * 4] = x;
+        Result.Elements[1 + 3 * 4] = y;
+        Result.Elements[2 + 3 * 4] = z;
         return Result;
     }
 }
