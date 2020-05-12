@@ -105,4 +105,8 @@ namespace YZMT {
         Result.Elements[2 + 3 * 4] = z;
         return Result;
     }
+    
+    mat3 mat4::GetSubMatrix() const {
+        return mat3 { Columns[0].xyz, Columns[1].xyz, Columns[2].xyz };
+    }
 }

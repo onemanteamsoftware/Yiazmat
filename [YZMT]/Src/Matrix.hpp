@@ -37,5 +37,7 @@ namespace YZMT {
         static mat4 Scale(float x, float y, float z);
         static mat4 Translate(const vec3& v);
         static mat4 Translate(float x, float y, float z);
+        
+        mat3 GetSubMatrix() const;
     };
 }
