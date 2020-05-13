@@ -4,10 +4,7 @@
 
 namespace YZMT {
     struct vec2 final {
-        union {
-            struct { float x; float y; };
-            float v[2];
-        };
+        float x, y;
         
         vec2();
         explicit vec2(float x, float y = 0.0f);
@@ -36,11 +33,7 @@ namespace YZMT {
     };
     
     struct vec3 final {
-        union {
-            struct { float x; float y; float z; };
-            struct { vec2 xy; float z; };
-            float v[3];
-        };
+        float x, y, z;
         
         vec3();
         vec3(const vec2& v, float z = 0.0f);
@@ -72,11 +65,7 @@ namespace YZMT {
     };
     
     struct vec4 final {
-        union {
-            struct { float x; float y; float z; float w; };
-            struct { vec3 xyz; float w; };
-            float v[4];
-        };
+        float x, y, z, w;
         
         vec4();
         vec4(const vec3& v, float w = 0.0f);

@@ -107,6 +107,10 @@ namespace YZMT {
     }
     
     mat3 mat4::GetSubMatrix() const {
-        return mat3 { Columns[0].xyz, Columns[1].xyz, Columns[2].xyz };
+        return mat3 {
+            vec3 { Columns[0].x, Columns[0].y, Columns[0].z },
+            vec3 { Columns[1].x, Columns[1].y, Columns[1].z },
+            vec3 { Columns[2].x, Columns[2].y, Columns[2].z }
+        };
     }
 }
