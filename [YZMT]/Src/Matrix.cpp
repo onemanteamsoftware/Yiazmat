@@ -52,6 +52,17 @@ namespace YZMT {
         return Result;
     }
     
+    mat3 mat3::operator*(float s) const {
+        return mat3 { Columns[0] * s, Columns[1] * s, Columns[2] * s };
+    }
+    
+    mat3& mat3::operator*=(float s) {
+        Columns[0] *= s;
+        Columns[1] *= s;
+        Columns[2] *= s;
+        return *this;
+    }
+    
     mat4::mat4()
         : Elements { 0.0f } {
     }
