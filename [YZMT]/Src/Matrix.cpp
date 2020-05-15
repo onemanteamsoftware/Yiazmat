@@ -124,4 +124,16 @@ namespace YZMT {
             vec3 { Columns[2].x, Columns[2].y, Columns[2].z }
         };
     }
+    
+    mat4 mat4::operator*(float s) const {
+        return mat4 { Columns[0] * s, Columns[1] * s, Columns[2] * s, Columns[3] * s };
+    }
+    
+    mat4& mat4::operator*=(float s) {
+        Columns[0] *= s;
+        Columns[1] *= s;
+        Columns[2] *= s;
+        Columns[3] *= s;
+        return *this;
+    }
 }

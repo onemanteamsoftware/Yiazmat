@@ -12,3 +12,4 @@ Single precision floating point:
 
 + Square Matrices [mat3, mat4]
   - [x] Identity/Scale/Translate
+  - [x] Scalar Multiplication
