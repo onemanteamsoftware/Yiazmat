@@ -22,8 +22,10 @@ namespace YZMT {
         static mat3 Translate(float x, float y);
         
         mat3 operator*(float s) const;
+        mat3 operator/(float s) const;
         
         mat3& operator*=(float s);
+        mat3& operator/=(float s);
     };
     
     struct mat4 final {
