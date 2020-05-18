@@ -148,11 +148,23 @@ namespace YZMT {
         return mat4 { m.Columns[0] * s, m.Columns[1] * s, m.Columns[2] * s, m.Columns[3] * s };
     }
     
+    mat4 mat4::operator/(float s) const {
+        return mat4 { Columns[0] / s, Columns[1] / s, Columns[2] / s, Columns[3] / s };
+    }
+    
     mat4& mat4::operator*=(float s) {
         Columns[0] *= s;
         Columns[1] *= s;
         Columns[2] *= s;
         Columns[3] *= s;
+        return *this;
+    }
+    
+    mat4& mat4::operator/=(float s) {
+        Columns[0] /= s;
+        Columns[1] /= s;
+        Columns[2] /= s;
+        Columns[3] /= s;
         return *this;
     }
 }

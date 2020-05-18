@@ -47,7 +47,9 @@ namespace YZMT {
         mat3 GetSubMatrix() const;
         
         mat4 operator*(float s) const;
+        mat4 operator/(float s) const;
         
         mat4& operator*=(float s);
+        mat4& operator/=(float s);
     };
 }
