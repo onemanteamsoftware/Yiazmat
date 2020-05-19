@@ -23,9 +23,11 @@ namespace YZMT {
         
         mat3 operator*(float s) const;
         mat3 operator/(float s) const;
+        mat3 operator+(const mat3& m) const;
         
         mat3& operator*=(float s);
         mat3& operator/=(float s);
+        mat3& operator+=(const mat3& m);
     };
     
     struct mat4 final {
