@@ -50,8 +50,10 @@ namespace YZMT {
         
         mat4 operator*(float s) const;
         mat4 operator/(float s) const;
+        mat4 operator+(const mat4& m) const;
         
         mat4& operator*=(float s);
         mat4& operator/=(float s);
+        mat4& operator+=(const mat4& m);
     };
 }
