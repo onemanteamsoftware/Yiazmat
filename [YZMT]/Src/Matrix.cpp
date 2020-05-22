@@ -178,6 +178,10 @@ namespace YZMT {
         return mat4 { Columns[0] + m.Columns[0], Columns[1] + m.Columns[1], Columns[2] + m.Columns[2], Columns[3] + m.Columns[3] };
     }
     
+    mat4 mat4::operator-(const mat4& m) const {
+        return mat4 { Columns[0] - m.Columns[0], Columns[1] - m.Columns[1], Columns[2] - m.Columns[2], Columns[3] - m.Columns[3] };
+    }
+    
     mat4& mat4::operator*=(float s) {
         Columns[0] *= s;
         Columns[1] *= s;
@@ -199,6 +203,14 @@ namespace YZMT {
         Columns[1] += m.Columns[1];
         Columns[2] += m.Columns[2];
         Columns[3] += m.Columns[3];
+        return *this;
+    }
+    
+    mat4& mat4::operator-=(const mat4& m) {
+        Columns[0] -= m.Columns[0];
+        Columns[1] -= m.Columns[1];
+        Columns[2] -= m.Columns[2];
+        Columns[3] -= m.Columns[3];
         return *this;
     }
 }
