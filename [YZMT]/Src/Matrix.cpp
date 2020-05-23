@@ -72,6 +72,14 @@ namespace YZMT {
         return mat3 { Columns[0] - m.Columns[0], Columns[1] - m.Columns[1], Columns[2] - m.Columns[2] };
     }
     
+    bool mat3::operator==(const mat3& m) const {
+        return Columns[0] == m.Columns[0] && Columns[1] == m.Columns[1] && Columns[2] == m.Columns[2];
+    }
+    
+    bool mat3::operator!=(const mat3& m) const {
+        return !(*this == m);
+    }
+    
     mat3& mat3::operator*=(float s) {
         Columns[0] *= s;
         Columns[1] *= s;
@@ -180,6 +188,14 @@ namespace YZMT {
     
     mat4 mat4::operator-(const mat4& m) const {
         return mat4 { Columns[0] - m.Columns[0], Columns[1] - m.Columns[1], Columns[2] - m.Columns[2], Columns[3] - m.Columns[3] };
+    }
+    
+    bool mat4::operator==(const mat4& m) const {
+        return Columns[0] == m.Columns[0] && Columns[1] == m.Columns[1] && Columns[2] == m.Columns[2] && Columns[3] == m.Columns[3];
+    }
+    
+    bool mat4::operator!=(const mat4& m) const {
+        return !(*this == m);
     }
     
     mat4& mat4::operator*=(float s) {

@@ -26,6 +26,9 @@ namespace YZMT {
         mat3 operator+(const mat3& m) const;
         mat3 operator-(const mat3& m) const;
         
+        bool operator==(const mat3& m) const;
+        bool operator!=(const mat3& m) const;
+        
         mat3& operator*=(float s);
         mat3& operator/=(float s);
         mat3& operator+=(const mat3& m);
@@ -54,6 +57,9 @@ namespace YZMT {
         mat4 operator/(float s) const;
         mat4 operator+(const mat4& m) const;
         mat4 operator-(const mat4& m) const;
+        
+        bool operator==(const mat4& m) const;
+        bool operator!=(const mat4& m) const;
         
         mat4& operator*=(float s);
         mat4& operator/=(float s);
