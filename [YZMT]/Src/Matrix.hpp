@@ -21,6 +21,8 @@ namespace YZMT {
         static mat3 Translate(const vec2& v);
         static mat3 Translate(float x, float y);
         
+        mat3 Transpose() const;
+        
         mat3 operator*(float s) const;
         mat3 operator/(float s) const;
         mat3 operator+(const mat3& m) const;
@@ -52,6 +54,7 @@ namespace YZMT {
         static mat4 Translate(float x, float y, float z);
         
         mat3 GetSubMatrix() const;
+        mat4 Transpose() const;
         
         mat4 operator*(float s) const;
         mat4 operator/(float s) const;

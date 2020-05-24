@@ -52,6 +52,14 @@ namespace YZMT {
         return Result;
     }
     
+    mat3 mat3::Transpose() const {
+        return mat3 {
+            vec3 { Elements[0], Elements[3], Elements[6] },
+            vec3 { Elements[1], Elements[4], Elements[7] },
+            vec3 { Elements[2], Elements[5], Elements[8] }
+        };
+    }
+    
     mat3 mat3::operator*(float s) const {
         return mat3 { Columns[0] * s, Columns[1] * s, Columns[2] * s };
     }
@@ -167,6 +175,15 @@ namespace YZMT {
             vec3 { Columns[0].x, Columns[0].y, Columns[0].z },
             vec3 { Columns[1].x, Columns[1].y, Columns[1].z },
             vec3 { Columns[2].x, Columns[2].y, Columns[2].z }
+        };
+    }
+    
+    mat4 mat4::Transpose() const {
+        return mat4 {
+            vec4 { Elements[0], Elements[4], Elements[8] , Elements[12] },
+            vec4 { Elements[1], Elements[5], Elements[9] , Elements[13] },
+            vec4 { Elements[2], Elements[6], Elements[10], Elements[14] },
+            vec4 { Elements[3], Elements[7], Elements[11], Elements[15] }
         };
     }
     
