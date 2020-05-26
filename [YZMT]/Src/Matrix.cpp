@@ -68,6 +68,14 @@ namespace YZMT {
         return mat3 { m.Columns[0] * s, m.Columns[1] * s, m.Columns[2] * s };
     }
     
+    vec3 mat3::operator*(const vec3& v) const {
+        return vec3 {
+            Elements[0] * v.x + Elements[3] * v.y + Elements[6] * v.z,
+            Elements[1] * v.x + Elements[4] * v.y + Elements[7] * v.z,
+            Elements[2] * v.x + Elements[5] * v.y + Elements[8] * v.z
+        };
+    }
+    
     mat3 mat3::operator/(float s) const {
         return mat3 { Columns[0] / s, Columns[1] / s, Columns[2] / s };
     }
