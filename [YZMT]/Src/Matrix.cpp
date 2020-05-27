@@ -203,6 +203,15 @@ namespace YZMT {
         return mat4 { m.Columns[0] * s, m.Columns[1] * s, m.Columns[2] * s, m.Columns[3] * s };
     }
     
+    vec4 mat4::operator*(const vec4& v) const {
+        return vec4 {
+            Elements[0] * v.x + Elements[4] * v.y + Elements[8]  * v.z + Elements[12] * v.w,
+            Elements[1] * v.x + Elements[5] * v.y + Elements[9]  * v.z + Elements[13] * v.w,
+            Elements[2] * v.x + Elements[6] * v.y + Elements[10] * v.z + Elements[14] * v.w,
+            Elements[3] * v.x + Elements[7] * v.y + Elements[11] * v.z + Elements[15] * v.w
+        };
+    }
+    
     mat4 mat4::operator/(float s) const {
         return mat4 { Columns[0] / s, Columns[1] / s, Columns[2] / s, Columns[3] / s };
     }
