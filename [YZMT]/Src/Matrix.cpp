@@ -76,6 +76,26 @@ namespace YZMT {
         };
     }
     
+    mat3 mat3::operator*(const mat3& m) const {
+        return mat3 {
+            vec3 {
+                Elements[0] * m.Elements[0] + Elements[3] * m.Elements[1] + Elements[6] * m.Elements[2],
+                Elements[1] * m.Elements[0] + Elements[4] * m.Elements[1] + Elements[7] * m.Elements[2],
+                Elements[2] * m.Elements[0] + Elements[5] * m.Elements[1] + Elements[8] * m.Elements[2]
+            },
+            vec3 {
+                Elements[0] * m.Elements[3] + Elements[3] * m.Elements[4] + Elements[6] * m.Elements[5],
+                Elements[1] * m.Elements[3] + Elements[4] * m.Elements[4] + Elements[7] * m.Elements[5],
+                Elements[2] * m.Elements[3] + Elements[5] * m.Elements[4] + Elements[8] * m.Elements[5]
+            },
+            vec3 {
+                Elements[0] * m.Elements[6] + Elements[3] * m.Elements[7] + Elements[6] * m.Elements[8],
+                Elements[1] * m.Elements[6] + Elements[4] * m.Elements[7] + Elements[7] * m.Elements[8],
+                Elements[2] * m.Elements[6] + Elements[5] * m.Elements[7] + Elements[8] * m.Elements[8]
+            }
+        };
+    }
+    
     mat3 mat3::operator/(float s) const {
         return mat3 { Columns[0] / s, Columns[1] / s, Columns[2] / s };
     }
