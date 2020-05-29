@@ -34,6 +34,7 @@ namespace YZMT {
         bool operator!=(const mat3& m) const;
         
         mat3& operator*=(float s);
+        mat3& operator*=(const mat3& m);
         mat3& operator/=(float s);
         mat3& operator+=(const mat3& m);
         mat3& operator-=(const mat3& m);

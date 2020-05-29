@@ -123,6 +123,11 @@ namespace YZMT {
         return *this;
     }
     
+    mat3& mat3::operator*=(const mat3& m) {
+        *this = *this * m;
+        return *this;
+    }
+    
     mat3& mat3::operator/=(float s) {
         Columns[0] /= s;
         Columns[1] /= s;
