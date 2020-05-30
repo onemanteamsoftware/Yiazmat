@@ -237,6 +237,35 @@ namespace YZMT {
         };
     }
     
+    mat4 mat4::operator*(const mat4& m) const {
+        return mat4 {
+            vec4 {
+                Elements[0] * m.Elements[0] + Elements[4] * m.Elements[1] + Elements[8]  * m.Elements[2] + Elements[12] * m.Elements[3],
+                Elements[1] * m.Elements[0] + Elements[5] * m.Elements[1] + Elements[9]  * m.Elements[2] + Elements[13] * m.Elements[3],
+                Elements[2] * m.Elements[0] + Elements[6] * m.Elements[1] + Elements[10] * m.Elements[2] + Elements[14] * m.Elements[3],
+                Elements[3] * m.Elements[0] + Elements[7] * m.Elements[1] + Elements[11] * m.Elements[2] + Elements[15] * m.Elements[3]
+            },
+            vec4 {
+                Elements[0] * m.Elements[4] + Elements[4] * m.Elements[5] + Elements[8]  * m.Elements[6] + Elements[12] * m.Elements[7],
+                Elements[1] * m.Elements[4] + Elements[5] * m.Elements[5] + Elements[9]  * m.Elements[6] + Elements[13] * m.Elements[7],
+                Elements[2] * m.Elements[4] + Elements[6] * m.Elements[5] + Elements[10] * m.Elements[6] + Elements[14] * m.Elements[7],
+                Elements[3] * m.Elements[4] + Elements[7] * m.Elements[5] + Elements[11] * m.Elements[6] + Elements[15] * m.Elements[7]
+            },
+            vec4 {
+                Elements[0] * m.Elements[8] + Elements[4] * m.Elements[9] + Elements[8]  * m.Elements[10] + Elements[12] * m.Elements[11],
+                Elements[1] * m.Elements[8] + Elements[5] * m.Elements[9] + Elements[9]  * m.Elements[10] + Elements[13] * m.Elements[11],
+                Elements[2] * m.Elements[8] + Elements[6] * m.Elements[9] + Elements[10] * m.Elements[10] + Elements[14] * m.Elements[11],
+                Elements[3] * m.Elements[8] + Elements[7] * m.Elements[9] + Elements[11] * m.Elements[10] + Elements[15] * m.Elements[11]
+            },
+            vec4 {
+                Elements[0] * m.Elements[12] + Elements[4] * m.Elements[13] + Elements[8]  * m.Elements[14] + Elements[12] * m.Elements[15],
+                Elements[1] * m.Elements[12] + Elements[5] * m.Elements[13] + Elements[9]  * m.Elements[14] + Elements[13] * m.Elements[15],
+                Elements[2] * m.Elements[12] + Elements[6] * m.Elements[13] + Elements[10] * m.Elements[14] + Elements[14] * m.Elements[15],
+                Elements[3] * m.Elements[12] + Elements[7] * m.Elements[13] + Elements[11] * m.Elements[14] + Elements[15] * m.Elements[15]
+            }
+        };
+    }
+    
     mat4 mat4::operator/(float s) const {
         return mat4 { Columns[0] / s, Columns[1] / s, Columns[2] / s, Columns[3] / s };
     }

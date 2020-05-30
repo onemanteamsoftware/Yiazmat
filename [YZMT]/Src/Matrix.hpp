@@ -61,6 +61,7 @@ namespace YZMT {
         
         mat4 operator*(float s) const;
         vec4 operator*(const vec4& v) const;
+        mat4 operator*(const mat4& m) const;
         mat4 operator/(float s) const;
         mat4 operator+(const mat4& m) const;
         mat4 operator-(const mat4& m) const;
