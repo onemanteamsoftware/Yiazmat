@@ -294,6 +294,11 @@ namespace YZMT {
         return *this;
     }
     
+    mat4& mat4::operator*=(const mat4& m) {
+        *this = *this * m;
+        return *this;
+    }
+    
     mat4& mat4::operator/=(float s) {
         Columns[0] /= s;
         Columns[1] /= s;
