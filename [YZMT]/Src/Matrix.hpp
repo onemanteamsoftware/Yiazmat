@@ -21,6 +21,7 @@ namespace YZMT {
         static mat3 Translate(const vec2& v);
         static mat3 Translate(float x, float y);
         
+        float Determinant() const;
         mat3 Transpose() const;
         
         mat3 operator*(float s) const;

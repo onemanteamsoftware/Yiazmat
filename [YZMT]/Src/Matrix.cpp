@@ -52,6 +52,14 @@ namespace YZMT {
         return Result;
     }
     
+    float mat3::Determinant() const {
+        return {
+            Elements[0] * (Elements[4] * Elements[8] - Elements[7] * Elements[5]) -
+            Elements[3] * (Elements[1] * Elements[8] - Elements[7] * Elements[2]) +
+            Elements[6] * (Elements[1] * Elements[5] - Elements[4] * Elements[2])
+        };
+    }
+    
     mat3 mat3::Transpose() const {
         return mat3 {
             vec3 { Elements[0], Elements[3], Elements[6] },
