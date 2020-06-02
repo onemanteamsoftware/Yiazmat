@@ -57,6 +57,7 @@ namespace YZMT {
         static mat4 Translate(const vec3& v);
         static mat4 Translate(float x, float y, float z);
         
+        float Determinant() const;
         mat3 GetSubMatrix() const;
         mat4 Transpose() const;
         

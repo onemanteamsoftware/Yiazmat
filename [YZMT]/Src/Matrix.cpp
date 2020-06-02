@@ -211,6 +211,22 @@ namespace YZMT {
         return Result;
     }
     
+    float mat4::Determinant() const {
+        vec3 v0 { Elements[1] , Elements[2] , Elements[3]  };
+        vec3 v1 { Elements[5] , Elements[6] , Elements[7]  };
+        vec3 v2 { Elements[9] , Elements[10], Elements[11] };
+        vec3 v3 { Elements[13], Elements[14], Elements[15] };
+        mat3 m0 { v1, v2, v3 };
+        mat3 m1 { v0, v2, v3 };
+        mat3 m2 { v0, v1, v3 };
+        mat3 m3 { v0, v1, v2 };
+        float a { Elements[0]  * m0.Determinant() };
+        float b { Elements[4]  * m1.Determinant() };
+        float c { Elements[8]  * m2.Determinant() };
+        float d { Elements[12] * m3.Determinant() };
+        return { a - b + c - d };
+    }
+    
     mat3 mat4::GetSubMatrix() const {
         return mat3 {
             vec3 { Columns[0].x, Columns[0].y, Columns[0].z },
