@@ -60,6 +60,17 @@ namespace YZMT {
         };
     }
     
+    mat3 mat3::Inverse() const {
+        vec3 r0 { Columns[1].Cross(Columns[2]) };
+        vec3 r1 { Columns[2].Cross(Columns[0]) };
+        vec3 r2 { Columns[0].Cross(Columns[1]) };
+        float invdet { 1.0f / r2.Dot(Columns[2]) };
+        vec3 c0 { r0.x, r1.x, r2.x };
+        vec3 c1 { r0.y, r1.y, r2.y };
+        vec3 c2 { r0.z, r1.z, r2.z };
+        return mat3 { c0 * invdet, c1 * invdet, c2 * invdet };
+    }
+    
     mat3 mat3::Transpose() const {
         return mat3 {
             vec3 { Elements[0], Elements[3], Elements[6] },

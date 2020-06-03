@@ -22,6 +22,7 @@ namespace YZMT {
         static mat3 Translate(float x, float y);
         
         float Determinant() const;
+        mat3 Inverse() const;
         mat3 Transpose() const;
         
         mat3 operator*(float s) const;
