@@ -246,6 +246,10 @@ namespace YZMT {
         };
     }
     
+    mat4 mat4::Inverse() const {
+        return mat4 {};
+    }
+    
     mat4 mat4::Transpose() const {
         return mat4 {
             vec4 { Elements[0], Elements[4], Elements[8] , Elements[12] },

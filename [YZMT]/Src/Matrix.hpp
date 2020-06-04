@@ -60,6 +60,7 @@ namespace YZMT {
         
         float Determinant() const;
         mat3 GetSubMatrix() const;
+        mat4 Inverse() const;
         mat4 Transpose() const;
         
         mat4 operator*(float s) const;
