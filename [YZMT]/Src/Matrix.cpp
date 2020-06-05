@@ -247,7 +247,33 @@ namespace YZMT {
     }
     
     mat4 mat4::Inverse() const {
-        return mat4 {};
+        const vec3& a { reinterpret_cast<const vec3&>(Columns[0]) };
+        const vec3& b { reinterpret_cast<const vec3&>(Columns[1]) };
+        const vec3& c { reinterpret_cast<const vec3&>(Columns[2]) };
+        const vec3& d { reinterpret_cast<const vec3&>(Columns[3]) };
+        const float& x { Elements[3] };
+        const float& y { Elements[7] };
+        const float& z { Elements[11] };
+        const float& w { Elements[15] };
+        vec3 s { a.Cross(b) };
+        vec3 t { c.Cross(d) };
+        vec3 u { a * y - b * x };
+        vec3 v { c * w - d * z };
+        float invdet { 1.0f / (s.Dot(v) + t.Dot(u)) };
+        s *= invdet;
+        t *= invdet;
+        u *= invdet;
+        v *= invdet;
+        vec3 r0 { b.Cross(v) + t * y };
+        vec3 r1 { v.Cross(a) - t * x };
+        vec3 r2 { d.Cross(u) + s * w };
+        vec3 r3 { u.Cross(c) - s * z };
+        return mat4 {
+            vec4 { r0.x, r1.x, r2.x, r3.x },
+            vec4 { r0.y, r1.y, r2.y, r3.y },
+            vec4 { r0.z, r1.z, r2.z, r3.z },
+            vec4 { -b.Dot(t), a.Dot(t), -d.Dot(s), c.Dot(s) }
+        };
     }
     
     mat4 mat4::Transpose() const {
