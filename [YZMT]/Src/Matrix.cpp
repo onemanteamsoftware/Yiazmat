@@ -222,6 +222,11 @@ namespace YZMT {
         return Result;
     }
     
+    mat4 mat4::Orthographic(float left, float right, float bottom, float top, float near, float far) {
+        mat4 Result { 1.0f };
+        return Result;
+    }
+    
     float mat4::Determinant() const {
         vec3 v0 { Elements[1] , Elements[2] , Elements[3]  };
         vec3 v1 { Elements[5] , Elements[6] , Elements[7]  };
