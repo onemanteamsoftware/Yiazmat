@@ -223,7 +223,14 @@ namespace YZMT {
     }
     
     mat4 mat4::Orthographic(float left, float right, float bottom, float top, float near, float far) {
-        mat4 Result { 1.0f };
+        mat4 Result {};
+        Result.Elements[0 + 0 * 4] = 2.0f / (right - left);
+        Result.Elements[1 + 1 * 4] = 2.0f / (top - bottom);
+        Result.Elements[2 + 2 * 4] = 2.0f / (near - far);
+        Result.Elements[0 + 3 * 4] = (left + right) / (left - right);
+        Result.Elements[1 + 3 * 4] = (bottom + top) / (bottom - top);
+        Result.Elements[2 + 3 * 4] = (far + near) / (far - near);
+        Result.Elements[3 + 3 * 4] = 1.0f;
         return Result;
     }
     
