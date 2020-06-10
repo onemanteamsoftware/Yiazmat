@@ -58,7 +58,8 @@ namespace YZMT {
         static mat4 Translate(const vec3& v);
         static mat4 Translate(float x, float y, float z);
         
-        static mat4 Orthographic(float left, float right, float bottom, float top, float near, float far);
+        static mat4 Orthographic(float Left, float Right, float Bottom, float Top, float Near, float Far);
+        static mat4 Perspective(float FOV, float Aspect, float Near, float Far);
         
         float Determinant() const;
         mat3 GetSubMatrix() const;

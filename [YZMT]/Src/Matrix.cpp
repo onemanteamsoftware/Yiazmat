@@ -222,15 +222,20 @@ namespace YZMT {
         return Result;
     }
     
-    mat4 mat4::Orthographic(float left, float right, float bottom, float top, float near, float far) {
+    mat4 mat4::Orthographic(float Left, float Right, float Bottom, float Top, float Near, float Far) {
         mat4 Result {};
-        Result.Elements[0 + 0 * 4] = 2.0f / (right - left);
-        Result.Elements[1 + 1 * 4] = 2.0f / (top - bottom);
-        Result.Elements[2 + 2 * 4] = 2.0f / (near - far);
-        Result.Elements[0 + 3 * 4] = (left + right) / (left - right);
-        Result.Elements[1 + 3 * 4] = (bottom + top) / (bottom - top);
-        Result.Elements[2 + 3 * 4] = (far + near) / (far - near);
+        Result.Elements[0 + 0 * 4] = 2.0f / (Right - Left);
+        Result.Elements[1 + 1 * 4] = 2.0f / (Top - Bottom);
+        Result.Elements[2 + 2 * 4] = 2.0f / (Near - Far);
+        Result.Elements[0 + 3 * 4] = (Left + Right) / (Left - Right);
+        Result.Elements[1 + 3 * 4] = (Bottom + Top) / (Bottom - Top);
+        Result.Elements[2 + 3 * 4] = (Far + Near) / (Far - Near);
         Result.Elements[3 + 3 * 4] = 1.0f;
+        return Result;
+    }
+    
+    mat4 mat4::Perspective(float FOV, float Aspect, float Near, float Far) {
+        mat4 Result {};
         return Result;
     }
     
