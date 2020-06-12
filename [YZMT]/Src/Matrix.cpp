@@ -236,6 +236,9 @@ namespace YZMT {
     
     mat4 mat4::Perspective(float FOV, float Aspect, float Near, float Far) {
         mat4 Result {};
+        Result.Elements[2 + 2 * 4] = (Near + Far) / (Near - Far);
+        Result.Elements[3 + 2 * 4] = -1.0f;
+        Result.Elements[2 + 3 * 4] = (2.0f * Near * Far) / (Near - Far);
         return Result;
     }
     
