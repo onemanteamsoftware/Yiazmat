@@ -93,6 +93,7 @@
     <ClCompile Include="Src\Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\Functions.hpp" />
     <ClInclude Include="Src\Matrix.hpp" />
     <ClInclude Include="Src\Vector.hpp" />
   </ItemGroup>
