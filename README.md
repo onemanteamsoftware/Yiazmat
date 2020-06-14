@@ -16,5 +16,5 @@ Single precision floating point:
   - [x] Identity/Scale/Translate
   - [x] Matrix Addition/Subtraction
   - [x] Matrix/Vector Multiplication
-  - [x] Orthographic Projection
+  - [x] Orthographic/Perspective Projection
   - [x] Scalar Division/Multiplication
