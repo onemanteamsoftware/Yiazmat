@@ -53,6 +53,7 @@ namespace YZMT {
         mat4(const vec4& v0, const vec4& v1, const vec4& v2, const vec4& v3);
         
         static mat4 Identity();
+        static mat4 Rotate(float Angle, const vec3& v);
         static mat4 Scale(const vec3& v);
         static mat4 Scale(float x, float y, float z);
         static mat4 Translate(const vec3& v);
