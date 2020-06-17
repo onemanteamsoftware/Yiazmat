@@ -191,6 +191,20 @@ namespace YZMT {
     
     mat4 mat4::Rotate(float Angle, const vec3& v) {
         mat4 Result {};
+        float Theta { ToRadians(Angle) };
+        float c { std::cos(Theta) };
+        float s { std::sin(Theta) };
+        float omc { 1.0f - c };
+        Result.Elements[0 + 0 * 4] = (v.x * v.x * omc) + c;
+        Result.Elements[1 + 0 * 4] = (v.x * v.y * omc) + (s * v.z);
+        Result.Elements[2 + 0 * 4] = (v.x * v.z * omc) - (s * v.y);
+        Result.Elements[0 + 1 * 4] = (v.y * v.x * omc) - (s * v.z);
+        Result.Elements[1 + 1 * 4] = (v.y * v.y * omc) + c;
+        Result.Elements[2 + 1 * 4] = (v.y * v.z * omc) + (s * v.x);
+        Result.Elements[0 + 2 * 4] = (v.z * v.x * omc) + (s * v.y);
+        Result.Elements[1 + 2 * 4] = (v.z * v.y * omc) - (s * v.x);
+        Result.Elements[2 + 2 * 4] = (v.z * v.z * omc) + c;
+        Result.Elements[3 + 3 * 4] = 1.0f;
         return Result;
     }
     
