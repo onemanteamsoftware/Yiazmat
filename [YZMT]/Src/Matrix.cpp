@@ -65,11 +65,11 @@ namespace YZMT {
         vec3 r0 { Columns[1].Cross(Columns[2]) };
         vec3 r1 { Columns[2].Cross(Columns[0]) };
         vec3 r2 { Columns[0].Cross(Columns[1]) };
-        float invdet { 1.0f / r2.Dot(Columns[2]) };
+        float InvDet { 1.0f / r2.Dot(Columns[2]) };
         vec3 c0 { r0.x, r1.x, r2.x };
         vec3 c1 { r0.y, r1.y, r2.y };
         vec3 c2 { r0.z, r1.z, r2.z };
-        return mat3 { c0 * invdet, c1 * invdet, c2 * invdet };
+        return mat3 { c0 * InvDet, c1 * InvDet, c2 * InvDet };
     }
     
     mat3 mat3::Transpose() const {
@@ -256,7 +256,7 @@ namespace YZMT {
     
     mat4 mat4::Perspective(float FOV, float Aspect, float Near, float Far) {
         mat4 Result {};
-        float q { 1.0f / tan(ToRadians(FOV * 0.5f)) };
+        float q { 1.0f / std::tan(ToRadians(FOV * 0.5f)) };
         Result.Elements[0 + 0 * 4] = q / Aspect;
         Result.Elements[1 + 1 * 4] = q;
         Result.Elements[2 + 2 * 4] = (Near + Far) / (Near - Far);
@@ -302,11 +302,11 @@ namespace YZMT {
         vec3 t { c.Cross(d) };
         vec3 u { a * y - b * x };
         vec3 v { c * w - d * z };
-        float invdet { 1.0f / (s.Dot(v) + t.Dot(u)) };
-        s *= invdet;
-        t *= invdet;
-        u *= invdet;
-        v *= invdet;
+        float InvDet { 1.0f / (s.Dot(v) + t.Dot(u)) };
+        s *= InvDet;
+        t *= InvDet;
+        u *= InvDet;
+        v *= InvDet;
         vec3 r0 { b.Cross(v) + t * y };
         vec3 r1 { v.Cross(a) - t * x };
         vec3 r2 { d.Cross(u) + s * w };
