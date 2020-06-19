@@ -208,6 +208,21 @@ namespace YZMT {
         return Result;
     }
     
+    mat4 mat4::RotateX(float Angle) {
+        return mat4 {
+        };
+    }
+    
+    mat4 mat4::RotateY(float Angle) {
+        return mat4 {
+        };
+    }
+    
+    mat4 mat4::RotateZ(float Angle) {
+        return mat4 {
+        };
+    }
+    
     mat4 mat4::Scale(const vec3& v) {
         mat4 Result {};
         Result.Elements[0 + 0 * 4] = v.x;
