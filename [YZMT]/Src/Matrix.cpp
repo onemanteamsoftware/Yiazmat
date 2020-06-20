@@ -209,17 +209,38 @@ namespace YZMT {
     }
     
     mat4 mat4::RotateX(float Angle) {
+        float Radians { ToRadians(Angle) };
+        float c { std::cos(Radians) };
+        float s { std::sin(Radians) };
         return mat4 {
+            vec4 { 1.0f, 0.0f, 0.0f, 0.0f },
+            vec4 { 0.0f,    c,   -s, 0.0f },
+            vec4 { 0.0f,    s,    c, 0.0f },
+            vec4 { 0.0f, 0.0f, 0.0f, 1.0f }
         };
     }
     
     mat4 mat4::RotateY(float Angle) {
+        float Radians { ToRadians(Angle) };
+        float c { std::cos(Radians) };
+        float s { std::sin(Radians) };
         return mat4 {
+            vec4 {    c, 0.0f,    s, 0.0f },
+            vec4 { 0.0f, 1.0f, 0.0f, 0.0f },
+            vec4 {   -s, 0.0f,    c, 0.0f },
+            vec4 { 0.0f, 0.0f, 0.0f, 1.0f }
         };
     }
     
     mat4 mat4::RotateZ(float Angle) {
+        float Radians { ToRadians(Angle) };
+        float c { std::cos(Radians) };
+        float s { std::sin(Radians) };
         return mat4 {
+            vec4 {    c,    s, 0.0f, 0.0f },
+            vec4 {   -s,    c, 0.0f, 0.0f },
+            vec4 { 0.0f, 0.0f, 1.0f, 0.0f },
+            vec4 { 0.0f, 0.0f, 0.0f, 1.0f }
         };
     }
     
