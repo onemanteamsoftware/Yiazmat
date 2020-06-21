@@ -190,11 +190,11 @@ namespace YZMT {
     }
     
     mat4 mat4::Rotate(float Angle, const vec3& v) {
-        mat4 Result {};
-        float Theta { ToRadians(Angle) };
-        float c { std::cos(Theta) };
-        float s { std::sin(Theta) };
+        float Radians { ToRadians(Angle) };
+        float c { std::cos(Radians) };
+        float s { std::sin(Radians) };
         float omc { 1.0f - c };
+        mat4 Result {};
         Result.Elements[0 + 0 * 4] = (v.x * v.x * omc) + c;
         Result.Elements[1 + 0 * 4] = (v.x * v.y * omc) + (s * v.z);
         Result.Elements[2 + 0 * 4] = (v.x * v.z * omc) - (s * v.y);
@@ -212,36 +212,42 @@ namespace YZMT {
         float Radians { ToRadians(Angle) };
         float c { std::cos(Radians) };
         float s { std::sin(Radians) };
-        return mat4 {
-            vec4 { 1.0f, 0.0f, 0.0f, 0.0f },
-            vec4 { 0.0f,    c,   -s, 0.0f },
-            vec4 { 0.0f,    s,    c, 0.0f },
-            vec4 { 0.0f, 0.0f, 0.0f, 1.0f }
-        };
+        mat4 Result {};
+        Result.Elements[0 + 0 * 4] = 1.0f;
+        Result.Elements[1 + 1 * 4] = c;
+        Result.Elements[2 + 1 * 4] = -s;
+        Result.Elements[1 + 2 * 4] = s;
+        Result.Elements[2 + 2 * 4] = c;
+        Result.Elements[3 + 3 * 4] = 1.0f;
+        return Result;
     }
     
     mat4 mat4::RotateY(float Angle) {
         float Radians { ToRadians(Angle) };
         float c { std::cos(Radians) };
         float s { std::sin(Radians) };
-        return mat4 {
-            vec4 {    c, 0.0f,    s, 0.0f },
-            vec4 { 0.0f, 1.0f, 0.0f, 0.0f },
-            vec4 {   -s, 0.0f,    c, 0.0f },
-            vec4 { 0.0f, 0.0f, 0.0f, 1.0f }
-        };
+        mat4 Result {};
+        Result.Elements[0 + 0 * 4] = c;
+        Result.Elements[2 + 0 * 4] = s;
+        Result.Elements[1 + 1 * 4] = 1.0f;
+        Result.Elements[0 + 2 * 4] = -s;
+        Result.Elements[2 + 2 * 4] = c;
+        Result.Elements[3 + 3 * 4] = 1.0f;
+        return Result;
     }
     
     mat4 mat4::RotateZ(float Angle) {
         float Radians { ToRadians(Angle) };
         float c { std::cos(Radians) };
         float s { std::sin(Radians) };
-        return mat4 {
-            vec4 {    c,    s, 0.0f, 0.0f },
-            vec4 {   -s,    c, 0.0f, 0.0f },
-            vec4 { 0.0f, 0.0f, 1.0f, 0.0f },
-            vec4 { 0.0f, 0.0f, 0.0f, 1.0f }
-        };
+        mat4 Result {};
+        Result.Elements[0 + 0 * 4] = c;
+        Result.Elements[1 + 0 * 4] = s;
+        Result.Elements[0 + 1 * 4] = -s;
+        Result.Elements[1 + 1 * 4] = c;
+        Result.Elements[2 + 2 * 4] = 1.0f;
+        Result.Elements[3 + 3 * 4] = 1.0f;
+        return Result;
     }
     
     mat4 mat4::Scale(const vec3& v) {
@@ -291,8 +297,8 @@ namespace YZMT {
     }
     
     mat4 mat4::Perspective(float FOV, float Aspect, float Near, float Far) {
-        mat4 Result {};
         float q { 1.0f / std::tan(ToRadians(FOV * 0.5f)) };
+        mat4 Result {};
         Result.Elements[0 + 0 * 4] = q / Aspect;
         Result.Elements[1 + 1 * 4] = q;
         Result.Elements[2 + 2 * 4] = (Near + Far) / (Near - Far);
