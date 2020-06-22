@@ -16,6 +16,9 @@ namespace YZMT {
         mat3(const vec3& v0, const vec3& v1, const vec3& v2);
         
         static mat3 Identity();
+        static mat3 RotateX(float Angle);
+        static mat3 RotateY(float Angle);
+        static mat3 RotateZ(float Angle);
         static mat3 Scale(const vec2& v);
         static mat3 Scale(float x, float y);
         static mat3 Translate(const vec2& v);

@@ -23,6 +23,45 @@ namespace YZMT {
         return mat3 { 1.0f };
     }
     
+    mat3 mat3::RotateX(float Angle) {
+        float Radians { ToRadians(Angle) };
+        float c { std::cos(Radians) };
+        float s { std::sin(Radians) };
+        mat3 Result {};
+        Result.Elements[0 + 0 * 3] = 1.0f;
+        Result.Elements[1 + 1 * 3] = c;
+        Result.Elements[2 + 1 * 3] = -s;
+        Result.Elements[1 + 2 * 3] = s;
+        Result.Elements[2 + 2 * 3] = c;
+        return Result;
+    }
+    
+    mat3 mat3::RotateY(float Angle) {
+        float Radians { ToRadians(Angle) };
+        float c { std::cos(Radians) };
+        float s { std::sin(Radians) };
+        mat3 Result {};
+        Result.Elements[0 + 0 * 3] = c;
+        Result.Elements[2 + 0 * 3] = s;
+        Result.Elements[1 + 1 * 3] = 1.0f;
+        Result.Elements[0 + 2 * 3] = -s;
+        Result.Elements[2 + 2 * 3] = c;
+        return Result;
+    }
+    
+    mat3 mat3::RotateZ(float Angle) {
+        float Radians { ToRadians(Angle) };
+        float c { std::cos(Radians) };
+        float s { std::sin(Radians) };
+        mat3 Result {};
+        Result.Elements[0 + 0 * 3] = c;
+        Result.Elements[1 + 0 * 3] = s;
+        Result.Elements[0 + 1 * 3] = -s;
+        Result.Elements[1 + 1 * 3] = c;
+        Result.Elements[2 + 2 * 3] = 1.0f;
+        return Result;
+    }
+    
     mat3 mat3::Scale(const vec2& v) {
         mat3 Result {};
         Result.Elements[0 + 0 * 3] = v.x;
