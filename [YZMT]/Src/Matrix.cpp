@@ -23,6 +23,24 @@ namespace YZMT {
         return mat3 { 1.0f };
     }
     
+    mat3 mat3::Rotate(float Angle, const vec3& v) {
+        float Radians { ToRadians(Angle) };
+        float c { std::cos(Radians) };
+        float s { std::sin(Radians) };
+        float omc { 1.0f - c };
+        mat3 Result {};
+        Result.Elements[0 + 0 * 3] = (v.x * v.x * omc) + c;
+        Result.Elements[1 + 0 * 3] = (v.x * v.y * omc) + (s * v.z);
+        Result.Elements[2 + 0 * 3] = (v.x * v.z * omc) - (s * v.y);
+        Result.Elements[0 + 1 * 3] = (v.y * v.x * omc) - (s * v.z);
+        Result.Elements[1 + 1 * 3] = (v.y * v.y * omc) + c;
+        Result.Elements[2 + 1 * 3] = (v.y * v.z * omc) + (s * v.x);
+        Result.Elements[0 + 2 * 3] = (v.z * v.x * omc) + (s * v.y);
+        Result.Elements[1 + 2 * 3] = (v.z * v.y * omc) - (s * v.x);
+        Result.Elements[2 + 2 * 3] = (v.z * v.z * omc) + c;
+        return Result;
+    }
+    
     mat3 mat3::RotateX(float Angle) {
         float Radians { ToRadians(Angle) };
         float c { std::cos(Radians) };

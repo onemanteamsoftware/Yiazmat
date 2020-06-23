@@ -13,7 +13,7 @@ Single precision floating point:
 + Square Matrices [mat3, mat4]
   - [x] Determinant/Inverse/Transpose
   - [x] Equality/Inequality
-  - [x] Identity/Scale/Translate
+  - [x] Identity/Rotate/Scale/Translate
   - [x] Matrix Addition/Subtraction
   - [x] Matrix/Vector Multiplication
   - [x] Orthographic/Perspective Projection
