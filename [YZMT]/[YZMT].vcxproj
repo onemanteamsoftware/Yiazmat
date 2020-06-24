@@ -89,12 +89,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Src\Matrix.cpp" />
+    <ClCompile Include="Src\Point.cpp" />
     <ClCompile Include="Src\TestSuite.cpp" />
     <ClCompile Include="Src\Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Functions.hpp" />
     <ClInclude Include="Src\Matrix.hpp" />
+    <ClInclude Include="Src\Point.hpp" />
     <ClInclude Include="Src\Vector.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
