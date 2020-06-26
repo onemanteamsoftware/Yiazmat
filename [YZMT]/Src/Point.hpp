@@ -3,4 +3,12 @@
 #pragma once
 
 namespace YZMT {
+    struct pos2 final {
+    };
+    
+    struct pos3 final {
+    };
+    
+    struct pos4 final {
+    };
 }
