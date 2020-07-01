@@ -18,3 +18,5 @@ Single precision floating point:
   - [x] Matrix/Vector Multiplication
   - [x] Orthographic/Perspective Projection
   - [x] Scalar Division/Multiplication
+
++ Quaternions
