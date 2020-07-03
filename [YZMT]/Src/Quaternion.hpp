@@ -2,7 +2,7 @@
 /*github.com/onemanteamsoftware*/
 #pragma once
 
-#include "Vector.hpp"
+#include "Matrix.hpp"
 
 namespace YZMT {
     struct Quaternion final {
@@ -14,5 +14,8 @@ namespace YZMT {
         Quaternion(float x, float y, float z, float w = 1.0f);
         
         static Quaternion Identity();
+        
+        bool operator==(const Quaternion& q) const;
+        bool operator!=(const Quaternion& q) const;
     };
 }

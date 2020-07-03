@@ -20,4 +20,5 @@ Single precision floating point:
   - [x] Scalar Division/Multiplication
 
 + Quaternions
+  - [x] Equality/Inequality
   - [x] Identity
