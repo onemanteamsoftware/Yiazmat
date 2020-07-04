@@ -23,11 +23,27 @@ namespace YZMT {
         return Quaternion { 0.0f, 0.0f, 0.0f, 1.0f };
     }
     
+    Quaternion Quaternion::operator*(float s) const {
+        return Quaternion { x * s, y * s, z * s, w * s };
+    }
+    
+    Quaternion operator*(float s, const Quaternion& q) {
+        return Quaternion { q.x * s, q.y * s, q.z * s, q.w * s };
+    }
+    
     bool Quaternion::operator==(const Quaternion& q) const {
         return x == q.x && y == q.y && z == q.z && w == q.w;
     }
     
     bool Quaternion::operator!=(const Quaternion& q) const {
         return !(*this == q);
+    }
+    
+    Quaternion& Quaternion::operator*=(float s) {
+        x *= s;
+        y *= s;
+        z *= s;
+        w *= s;
+        return *this;
     }
 }
