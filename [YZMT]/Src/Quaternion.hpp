@@ -17,11 +17,13 @@ namespace YZMT {
         
         Quaternion operator*(float s) const;
         Quaternion operator/(float s) const;
+        Quaternion operator+(const Quaternion& q) const;
         
         bool operator==(const Quaternion& q) const;
         bool operator!=(const Quaternion& q) const;
         
         Quaternion& operator*=(float s);
         Quaternion& operator/=(float s);
+        Quaternion& operator+=(const Quaternion& q);
     };
 }
