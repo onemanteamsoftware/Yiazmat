@@ -22,5 +22,5 @@ Single precision floating point:
 + Quaternions
   - [x] Equality/Inequality
   - [x] Identity
-  - [x] Quaternion Addition
+  - [x] Quaternion Addition/Subtraction
   - [x] Scalar Division/Multiplication
