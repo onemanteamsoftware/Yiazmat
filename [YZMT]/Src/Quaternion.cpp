@@ -31,6 +31,15 @@ namespace YZMT {
         return Quaternion { q.x * s, q.y * s, q.z * s, q.w * s };
     }
     
+    Quaternion Quaternion::operator*(const Quaternion& q) const {
+        return Quaternion {
+            w * q.x + x * q.w + y * q.z - z * q.y,
+            w * q.y - x * q.z + y * q.w + z * q.x,
+            w * q.z + x * q.y - y * q.x + z * q.w,
+            w * q.w - x * q.x - y * q.y - z * q.z
+        };
+    }
+    
     Quaternion Quaternion::operator/(float s) const {
         return Quaternion { x / s, y / s, z / s, w / s };
     }
@@ -60,6 +69,11 @@ namespace YZMT {
         y *= s;
         z *= s;
         w *= s;
+        return *this;
+    }
+    
+    Quaternion& Quaternion::operator*=(const Quaternion& q) {
+        *this = *this * q;
         return *this;
     }
     
