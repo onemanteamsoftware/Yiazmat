@@ -23,6 +23,10 @@ namespace YZMT {
         return Quaternion { 0.0f, 0.0f, 0.0f, 1.0f };
     }
     
+    Quaternion Quaternion::Conjugate() const {
+        return Quaternion { -x, -y, -z, w };
+    }
+    
     Quaternion Quaternion::operator*(float s) const {
         return Quaternion { x * s, y * s, z * s, w * s };
     }
