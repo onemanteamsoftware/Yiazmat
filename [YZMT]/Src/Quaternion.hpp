@@ -17,6 +17,8 @@ namespace YZMT {
         
         Quaternion Conjugate() const;
         
+        Quaternion operator-() const;
+        
         Quaternion operator*(float s) const;
         Quaternion operator*(const Quaternion& q) const;
         Quaternion operator/(float s) const;

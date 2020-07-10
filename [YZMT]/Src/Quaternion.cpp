@@ -27,6 +27,10 @@ namespace YZMT {
         return Quaternion { -x, -y, -z, w };
     }
     
+    Quaternion Quaternion::operator-() const {
+        return Quaternion { -x, -y, -z, -w };
+    }
+    
     Quaternion Quaternion::operator*(float s) const {
         return Quaternion { x * s, y * s, z * s, w * s };
     }
