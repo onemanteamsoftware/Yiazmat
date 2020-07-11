@@ -16,6 +16,8 @@ namespace YZMT {
         static Quaternion Identity();
         
         Quaternion Conjugate() const;
+        Quaternion Inverse() const;
+        float Magnitude() const;
         
         Quaternion operator-() const;
         

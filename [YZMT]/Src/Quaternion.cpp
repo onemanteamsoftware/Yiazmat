@@ -2,6 +2,8 @@
 /*github.com/onemanteamsoftware*/
 #include "Quaternion.hpp"
 
+#include <cmath>
+
 namespace YZMT {
     Quaternion::Quaternion()
         : x { 0.0f }, y { 0.0f }, z { 0.0f }, w { 0.0f } {
@@ -25,6 +27,14 @@ namespace YZMT {
     
     Quaternion Quaternion::Conjugate() const {
         return Quaternion { -x, -y, -z, w };
+    }
+    
+    Quaternion Quaternion::Inverse() const {
+        return Conjugate() / (x * x + y * y + z * z + w * w);
+    }
+    
+    float Quaternion::Magnitude() const {
+        return std::sqrt(x * x + y * y + z * z + w * w);
     }
     
     Quaternion Quaternion::operator-() const {

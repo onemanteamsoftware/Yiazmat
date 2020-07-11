@@ -20,9 +20,10 @@ Single precision floating point:
   - [x] Scalar Division/Multiplication
 
 + Quaternions
-  - [x] Conjugate
+  - [x] Conjugate/Inverse
   - [x] Equality/Inequality
   - [x] Identity
+  - [x] Magnitude
   - [x] Negation
   - [x] Quaternion Addition/Subtraction
   - [x] Quaternion Multiplication
