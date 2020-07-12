@@ -23,7 +23,7 @@ Single precision floating point:
   - [x] Conjugate/Inverse
   - [x] Equality/Inequality
   - [x] Identity
-  - [x] Magnitude
+  - [x] Magnitude/Normalize
   - [x] Negation
   - [x] Quaternion Addition/Subtraction
   - [x] Quaternion Multiplication

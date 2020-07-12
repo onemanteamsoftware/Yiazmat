@@ -37,6 +37,11 @@ namespace YZMT {
         return std::sqrt(x * x + y * y + z * z + w * w);
     }
     
+    Quaternion Quaternion::Normalize() const {
+        float m { Magnitude() };
+        return Quaternion { x / m, y / m, z / m, w / m };
+    }
+    
     Quaternion Quaternion::operator-() const {
         return Quaternion { -x, -y, -z, -w };
     }
