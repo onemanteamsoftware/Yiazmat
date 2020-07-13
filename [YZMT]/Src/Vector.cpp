@@ -30,7 +30,7 @@ namespace YZMT {
     }
     
     vec2 vec2::Normalize() const {
-        float m = Magnitude();
+        float m { Magnitude() };
         return vec2 { x / m, y / m };
     }
     
@@ -131,7 +131,7 @@ namespace YZMT {
     }
     
     vec3 vec3::Normalize() const {
-        float m = Magnitude();
+        float m { Magnitude() };
         return vec3 { x / m, y / m, z / m };
     }
     
@@ -232,7 +232,7 @@ namespace YZMT {
     }
     
     vec4 vec4::Normalize() const {
-        float m = Magnitude();
+        float m { Magnitude() };
         return vec4 { x / m, y / m, z / m, w / m };
     }
     
