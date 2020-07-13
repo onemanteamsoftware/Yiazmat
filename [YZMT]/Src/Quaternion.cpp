@@ -29,6 +29,10 @@ namespace YZMT {
         return Quaternion { -x, -y, -z, w };
     }
     
+    float Quaternion::Dot(const Quaternion& q) const {
+        return x * q.x + y * q.y + z * q.z + w * q.w;
+    }
+    
     Quaternion Quaternion::Inverse() const {
         return Conjugate() / (x * x + y * y + z * z + w * w);
     }

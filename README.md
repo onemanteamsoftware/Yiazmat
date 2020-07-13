@@ -21,6 +21,7 @@ Single precision floating point:
 
 + Quaternions
   - [x] Conjugate/Inverse
+  - [x] Dot Product
   - [x] Equality/Inequality
   - [x] Identity
   - [x] Magnitude/Normalize
