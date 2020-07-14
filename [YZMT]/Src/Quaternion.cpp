@@ -33,6 +33,20 @@ namespace YZMT {
         return x * q.x + y * q.y + z * q.z + w * q.w;
     }
     
+    mat3 Quaternion::Get3x3Matrix() const {
+        mat3 Result {};
+        Result.Elements[0 + 0 * 3] = 1.0f - 2.0f * (y * y + z * z);
+        Result.Elements[1 + 0 * 3] = 2.0f * (x * y + z * w);
+        Result.Elements[2 + 0 * 3] = 2.0f * (x * z - y * w);
+        Result.Elements[0 + 1 * 3] = 2.0f * (x * y - z * w);
+        Result.Elements[1 + 1 * 3] = 1.0f - 2.0f * (x * x + z * z);
+        Result.Elements[2 + 1 * 3] = 2.0f * (y * z + x * w);
+        Result.Elements[0 + 2 * 3] = 2.0f * (x * z + y * w);
+        Result.Elements[1 + 2 * 3] = 2.0f * (y * z - x * w);
+        Result.Elements[2 + 2 * 3] = 1.0f - 2.0f * (x * x + y * y);
+        return Result;
+    }
+    
     Quaternion Quaternion::Inverse() const {
         return Conjugate() / (x * x + y * y + z * z + w * w);
     }

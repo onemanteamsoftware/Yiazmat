@@ -17,6 +17,7 @@ namespace YZMT {
         
         Quaternion Conjugate() const;
         float Dot(const Quaternion& q) const;
+        mat3 Get3x3Matrix() const;
         Quaternion Inverse() const;
         float Magnitude() const;
         Quaternion Normalize() const;
