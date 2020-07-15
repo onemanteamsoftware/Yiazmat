@@ -23,6 +23,7 @@ Single precision floating point:
   - [x] Conjugate/Inverse
   - [x] Dot Product
   - [x] Equality/Inequality
+  - [x] Get3x3Matrix/Get4x4Matrix
   - [x] Identity
   - [x] Magnitude/Normalize
   - [x] Negation

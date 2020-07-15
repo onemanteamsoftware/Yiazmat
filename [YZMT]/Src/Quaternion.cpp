@@ -47,6 +47,21 @@ namespace YZMT {
         return Result;
     }
     
+    mat4 Quaternion::Get4x4Matrix() const {
+        mat4 Result {};
+        Result.Elements[0 + 0 * 4] = 1.0f - 2.0f * (y * y + z * z);
+        Result.Elements[1 + 0 * 4] = 2.0f * (x * y + z * w);
+        Result.Elements[2 + 0 * 4] = 2.0f * (x * z - y * w);
+        Result.Elements[0 + 1 * 4] = 2.0f * (x * y - z * w);
+        Result.Elements[1 + 1 * 4] = 1.0f - 2.0f * (x * x + z * z);
+        Result.Elements[2 + 1 * 4] = 2.0f * (y * z + x * w);
+        Result.Elements[0 + 2 * 4] = 2.0f * (x * z + y * w);
+        Result.Elements[1 + 2 * 4] = 2.0f * (y * z - x * w);
+        Result.Elements[2 + 2 * 4] = 1.0f - 2.0f * (x * x + y * y);
+        Result.Elements[3 + 3 * 4] = 1.0f;
+        return Result;
+    }
+    
     Quaternion Quaternion::Inverse() const {
         return Conjugate() / (x * x + y * y + z * z + w * w);
     }
