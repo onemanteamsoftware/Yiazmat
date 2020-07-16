@@ -1,7 +1,8 @@
 /*[YZMT]::[YZMT]::Matrix.cpp*/
 /*github.com/onemanteamsoftware*/
-#include "Functions.hpp"
 #include "Matrix.hpp"
+
+#include "Functions.hpp"
 
 namespace YZMT {
     mat3::mat3()
