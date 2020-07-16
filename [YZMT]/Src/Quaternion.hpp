@@ -14,6 +14,9 @@ namespace YZMT {
         Quaternion(float x, float y, float z, float w = 1.0f);
         
         static Quaternion Identity();
+        static Quaternion RotateX(float Angle);
+        static Quaternion RotateY(float Angle);
+        static Quaternion RotateZ(float Angle);
         
         Quaternion Conjugate() const;
         float Dot(const Quaternion& q) const;

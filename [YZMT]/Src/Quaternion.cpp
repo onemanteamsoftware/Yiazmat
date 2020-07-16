@@ -2,7 +2,7 @@
 /*github.com/onemanteamsoftware*/
 #include "Quaternion.hpp"
 
-#include <cmath>
+#include "Functions.hpp"
 
 namespace YZMT {
     Quaternion::Quaternion()
@@ -23,6 +23,21 @@ namespace YZMT {
     
     Quaternion Quaternion::Identity() {
         return Quaternion { 0.0f, 0.0f, 0.0f, 1.0f };
+    }
+    
+    Quaternion Quaternion::RotateX(float Angle) {
+        float Radians { ToRadians(Angle * 0.5f) };
+        return Quaternion { std::sin(Radians), 0.0f, 0.0f, std::cos(Radians) };
+    }
+    
+    Quaternion Quaternion::RotateY(float Angle) {
+        float Radians { ToRadians(Angle * 0.5f) };
+        return Quaternion { 0.0f, std::sin(Radians), 0.0f, std::cos(Radians) };
+    }
+    
+    Quaternion Quaternion::RotateZ(float Angle) {
+        float Radians { ToRadians(Angle * 0.5f) };
+        return Quaternion { 0.0f, 0.0f, std::sin(Radians), std::cos(Radians) };
     }
     
     Quaternion Quaternion::Conjugate() const {
