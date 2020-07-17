@@ -24,7 +24,7 @@ Single precision floating point:
   - [x] Dot Product
   - [x] Equality/Inequality
   - [x] Get3x3Matrix/Get4x4Matrix
-  - [x] Identity
+  - [x] Identity/Rotate
   - [x] Magnitude/Normalize
   - [x] Negation
   - [x] Quaternion Addition/Subtraction

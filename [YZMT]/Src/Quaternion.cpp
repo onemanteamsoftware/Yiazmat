@@ -25,6 +25,11 @@ namespace YZMT {
         return Quaternion { 0.0f, 0.0f, 0.0f, 1.0f };
     }
     
+    Quaternion Quaternion::Rotate(float Angle, const vec3& v) {
+        float Radians { ToRadians(Angle * 0.5f) };
+        return Quaternion { v * std::sin(Radians), std::cos(Radians) };
+    }
+    
     Quaternion Quaternion::RotateX(float Angle) {
         float Radians { ToRadians(Angle * 0.5f) };
         return Quaternion { std::sin(Radians), 0.0f, 0.0f, std::cos(Radians) };
