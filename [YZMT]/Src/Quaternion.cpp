@@ -95,6 +95,10 @@ namespace YZMT {
         return Quaternion { x / m, y / m, z / m, w / m };
     }
     
+    vec3 Quaternion::Transform(const vec3& v) const {
+        return vec3 {};
+    }
+    
     Quaternion Quaternion::operator-() const {
         return Quaternion { -x, -y, -z, -w };
     }

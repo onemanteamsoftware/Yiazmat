@@ -26,6 +26,7 @@ namespace YZMT {
         Quaternion Inverse() const;
         float Magnitude() const;
         Quaternion Normalize() const;
+        vec3 Transform(const vec3& v) const;
         
         Quaternion operator-() const;
         
