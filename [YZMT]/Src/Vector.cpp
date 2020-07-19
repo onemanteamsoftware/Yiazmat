@@ -29,6 +29,10 @@ namespace YZMT {
         return std::sqrt(x * x + y * y);
     }
     
+    float vec2::MagnitudeSquared() const {
+        return x * x + y * y;
+    }
+    
     vec2 vec2::Normalize() const {
         float m { Magnitude() };
         return vec2 { x / m, y / m };
@@ -130,6 +134,10 @@ namespace YZMT {
         return std::sqrt(x * x + y * y + z * z);
     }
     
+    float vec3::MagnitudeSquared() const {
+        return x * x + y * y + z * z;
+    }
+    
     vec3 vec3::Normalize() const {
         float m { Magnitude() };
         return vec3 { x / m, y / m, z / m };
@@ -229,6 +237,10 @@ namespace YZMT {
     
     float vec4::Magnitude() const {
         return std::sqrt(x * x + y * y + z * z + w * w);
+    }
+    
+    float vec4::MagnitudeSquared() const {
+        return x * x + y * y + z * z + w * w;
     }
     
     vec4 vec4::Normalize() const {

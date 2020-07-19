@@ -14,6 +14,7 @@ namespace YZMT {
         
         float Dot(const vec2& v) const;
         float Magnitude() const;
+        float MagnitudeSquared() const;
         vec2 Normalize() const;
         
         vec2 operator-() const;
@@ -46,6 +47,7 @@ namespace YZMT {
         vec3 Cross(const vec3& v) const;
         float Dot(const vec3& v) const;
         float Magnitude() const;
+        float MagnitudeSquared() const;
         vec3 Normalize() const;
         
         vec3 operator-() const;
@@ -77,6 +79,7 @@ namespace YZMT {
         
         float Dot(const vec4& v) const;
         float Magnitude() const;
+        float MagnitudeSquared() const;
         vec4 Normalize() const;
         
         vec4 operator-() const;
