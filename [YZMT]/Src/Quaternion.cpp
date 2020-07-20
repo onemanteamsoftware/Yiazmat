@@ -96,7 +96,8 @@ namespace YZMT {
     }
     
     vec3 Quaternion::Transform(const vec3& v) const {
-        return vec3 {};
+        const vec3& qv { reinterpret_cast<const vec3&>(x) };
+        return v * (w * w - qv.MagnitudeSquared()) + qv * (v.Dot(qv) * 2.0f) + qv.Cross(v) * (w * 2.0f);
     }
     
     Quaternion Quaternion::operator-() const {
