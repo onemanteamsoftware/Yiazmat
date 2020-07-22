@@ -7,7 +7,7 @@ namespace YZMT {
         float x, y;
         
         vec2();
-        explicit vec2(float x, float y = 0.0f);
+        vec2(float x, float y);
         
         static vec2 xAxis();
         static vec2 yAxis();
