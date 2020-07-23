@@ -2,7 +2,7 @@
 
 Single precision floating point:
 
-+ Direction Vectors [vec2, vec3, vec4]
++ Vectors [vec2, vec3, vec4]
   - [x] Cross/Dot Product
   - [x] Equality/Inequality
   - [x] Magnitude/MagnitudeSquared/Normalize

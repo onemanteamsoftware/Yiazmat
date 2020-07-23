@@ -89,7 +89,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Src\Matrix.cpp" />
-    <ClCompile Include="Src\Point.cpp" />
     <ClCompile Include="Src\Quaternion.cpp" />
     <ClCompile Include="Src\TestSuite.cpp" />
     <ClCompile Include="Src\Vector.cpp" />
@@ -97,7 +96,6 @@
   <ItemGroup>
     <ClInclude Include="Src\Functions.hpp" />
     <ClInclude Include="Src\Matrix.hpp" />
-    <ClInclude Include="Src\Point.hpp" />
     <ClInclude Include="Src\Quaternion.hpp" />
     <ClInclude Include="Src\Vector.hpp" />
   </ItemGroup>
