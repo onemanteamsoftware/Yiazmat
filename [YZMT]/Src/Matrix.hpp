@@ -2,6 +2,8 @@
 /*github.com/onemanteamsoftware*/
 #pragma once
 
+#include <iostream>
+
 #include "Vector.hpp"
 
 namespace YZMT {

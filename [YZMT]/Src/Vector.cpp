@@ -2,8 +2,6 @@
 /*github.com/onemanteamsoftware*/
 #include "Vector.hpp"
 
-#include <cmath>
-
 namespace YZMT {
     vec2::vec2()
         : x { 0.0f }, y { 0.0f } {

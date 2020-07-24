@@ -2,6 +2,8 @@
 /*github.com/onemanteamsoftware*/
 #pragma once
 
+#include <iostream>
+
 #include "Matrix.hpp"
 
 namespace YZMT {

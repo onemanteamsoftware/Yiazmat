@@ -2,6 +2,8 @@
 /*github.com/onemanteamsoftware*/
 #pragma once
 
+#include <iostream>
+
 namespace YZMT {
     struct vec2 final {
         float x, y;
