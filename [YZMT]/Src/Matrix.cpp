@@ -2,6 +2,8 @@
 /*github.com/onemanteamsoftware*/
 #include "Matrix.hpp"
 
+#include <cmath>
+
 #include "Functions.hpp"
 
 namespace YZMT {
