@@ -35,6 +35,8 @@ namespace YZMT {
         vec2& operator-=(const vec2& v);
     };
     
+    std::ostream& operator<<(std::ostream& Stream, const vec2& v);
+    
     struct vec3 final {
         float x, y, z;
         
@@ -68,6 +70,8 @@ namespace YZMT {
         vec3& operator-=(const vec3& v);
     };
     
+    std::ostream& operator<<(std::ostream& Stream, const vec3& v);
+    
     struct vec4 final {
         float x, y, z, w;
         
@@ -99,4 +103,6 @@ namespace YZMT {
         vec4& operator+=(const vec4& v);
         vec4& operator-=(const vec4& v);
     };
+    
+    std::ostream& operator<<(std::ostream& Stream, const vec4& v);
 }

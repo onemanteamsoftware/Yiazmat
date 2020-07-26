@@ -98,6 +98,11 @@ namespace YZMT {
         return *this;
     }
     
+    std::ostream& operator<<(std::ostream& Stream, const vec2& v) {
+        Stream << "vec2(" << v.x << ", " << v.y << ')';
+        return Stream;
+    }
+    
     vec3::vec3()
         : x { 0.0f }, y { 0.0f }, z { 0.0f } {
     }
@@ -207,6 +212,11 @@ namespace YZMT {
         return *this;
     }
     
+    std::ostream& operator<<(std::ostream& Stream, const vec3& v) {
+        Stream << "vec3(" << v.x << ", " << v.y << ", " << v.z << ')';
+        return Stream;
+    }
+    
     vec4::vec4()
         : x { 0.0f }, y { 0.0f }, z { 0.0f }, w { 0.0f } {
     }
@@ -314,5 +324,10 @@ namespace YZMT {
         z -= v.z;
         w -= v.w;
         return *this;
+    }
+    
+    std::ostream& operator<<(std::ostream& Stream, const vec4& v) {
+        Stream << "vec4(" << v.x << ", " << v.y << ", " << v.z << ", " << v.w << ')';
+        return Stream;
     }
 }
