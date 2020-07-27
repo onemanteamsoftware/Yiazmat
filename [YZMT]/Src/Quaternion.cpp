@@ -183,4 +183,9 @@ namespace YZMT {
         w -= q.w;
         return *this;
     }
+    
+    std::ostream& operator<<(std::ostream& Stream, const Quaternion& q) {
+        Stream << "Quaternion(" << q.w << ", (" << q.x << ", " << q.y << ", " << q.z << "))";
+        return Stream;
+    }
 }

@@ -47,4 +47,6 @@ namespace YZMT {
         Quaternion& operator+=(const Quaternion& q);
         Quaternion& operator-=(const Quaternion& q);
     };
+    
+    std::ostream& operator<<(std::ostream& Stream, const Quaternion& q);
 }
