@@ -48,6 +48,8 @@ namespace YZMT {
         mat3& operator-=(const mat3& m);
     };
     
+    std::ostream& operator<<(std::ostream& Stream, const mat3& m);
+    
     struct mat4 final {
         union {
             float Elements[4 * 4];
@@ -92,4 +94,6 @@ namespace YZMT {
         mat4& operator+=(const mat4& m);
         mat4& operator-=(const mat4& m);
     };
+    
+    std::ostream& operator<<(std::ostream& Stream, const mat4& m);
 }

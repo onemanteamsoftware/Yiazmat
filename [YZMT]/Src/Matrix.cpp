@@ -229,6 +229,10 @@ namespace YZMT {
         return *this;
     }
     
+    std::ostream& operator<<(std::ostream& Stream, const mat3& m) {
+        return Stream;
+    }
+    
     mat4::mat4()
         : Elements { 0.0f } {
     }
@@ -531,5 +535,9 @@ namespace YZMT {
         Columns[2] -= m.Columns[2];
         Columns[3] -= m.Columns[3];
         return *this;
+    }
+    
+    std::ostream& operator<<(std::ostream& Stream, const mat4& m) {
+        return Stream;
     }
 }
