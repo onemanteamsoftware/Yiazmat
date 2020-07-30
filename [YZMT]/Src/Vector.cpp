@@ -3,6 +3,7 @@
 #include "Vector.hpp"
 
 #include <cmath>
+#include <string>
 
 namespace YZMT {
     vec2::vec2()
@@ -99,7 +100,9 @@ namespace YZMT {
     }
     
     std::ostream& operator<<(std::ostream& Stream, const vec2& v) {
-        Stream << '(' << v.x << ", " << v.y << ')';
+        Stream << '('
+        << std::to_string(v.x).substr(0, 8) << ", "
+        << std::to_string(v.y).substr(0, 8) << ')';
         return Stream;
     }
     
@@ -213,7 +216,10 @@ namespace YZMT {
     }
     
     std::ostream& operator<<(std::ostream& Stream, const vec3& v) {
-        Stream << '(' << v.x << ", " << v.y << ", " << v.z << ')';
+        Stream << '('
+        << std::to_string(v.x).substr(0, 8) << ", "
+        << std::to_string(v.y).substr(0, 8) << ", "
+        << std::to_string(v.z).substr(0, 8) << ')';
         return Stream;
     }
     
@@ -327,7 +333,11 @@ namespace YZMT {
     }
     
     std::ostream& operator<<(std::ostream& Stream, const vec4& v) {
-        Stream << '(' << v.x << ", " << v.y << ", " << v.z << ", " << v.w << ')';
+        Stream << '('
+        << std::to_string(v.x).substr(0, 8) << ", "
+        << std::to_string(v.y).substr(0, 8) << ", "
+        << std::to_string(v.z).substr(0, 8) << ", "
+        << std::to_string(v.w).substr(0, 8) << ')';
         return Stream;
     }
 }

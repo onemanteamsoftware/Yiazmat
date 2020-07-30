@@ -3,6 +3,7 @@
 #include "Quaternion.hpp"
 
 #include <cmath>
+#include <string>
 
 #include "Functions.hpp"
 
@@ -185,7 +186,11 @@ namespace YZMT {
     }
     
     std::ostream& operator<<(std::ostream& Stream, const Quaternion& q) {
-        Stream << '(' << q.w << ", (" << q.x << ", " << q.y << ", " << q.z << "))";
+        Stream << '('
+        << std::to_string(q.w).substr(0, 8) << ", ("
+        << std::to_string(q.x).substr(0, 8) << ", "
+        << std::to_string(q.y).substr(0, 8) << ", "
+        << std::to_string(q.z).substr(0, 8) << "))";
         return Stream;
     }
 }
