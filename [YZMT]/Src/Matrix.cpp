@@ -3,6 +3,7 @@
 #include "Matrix.hpp"
 
 #include <cmath>
+#include <string>
 
 #include "Functions.hpp"
 
@@ -230,6 +231,16 @@ namespace YZMT {
     }
     
     std::ostream& operator<<(std::ostream& Stream, const mat3& m) {
+        Stream << '['
+        << std::to_string(m.Elements[0]).substr(0, 8) << ", "
+        << std::to_string(m.Elements[3]).substr(0, 8) << ", "
+        << std::to_string(m.Elements[6]).substr(0, 8) << "]\n["
+        << std::to_string(m.Elements[1]).substr(0, 8) << ", "
+        << std::to_string(m.Elements[4]).substr(0, 8) << ", "
+        << std::to_string(m.Elements[7]).substr(0, 8) << "]\n["
+        << std::to_string(m.Elements[2]).substr(0, 8) << ", "
+        << std::to_string(m.Elements[5]).substr(0, 8) << ", "
+        << std::to_string(m.Elements[8]).substr(0, 8) << ']';
         return Stream;
     }
     
@@ -538,6 +549,23 @@ namespace YZMT {
     }
     
     std::ostream& operator<<(std::ostream& Stream, const mat4& m) {
+        Stream << '['
+        << std::to_string(m.Elements[ 0]).substr(0, 8) << ", "
+        << std::to_string(m.Elements[ 4]).substr(0, 8) << ", "
+        << std::to_string(m.Elements[ 8]).substr(0, 8) << ", "
+        << std::to_string(m.Elements[12]).substr(0, 8) << "]\n["
+        << std::to_string(m.Elements[ 1]).substr(0, 8) << ", "
+        << std::to_string(m.Elements[ 5]).substr(0, 8) << ", "
+        << std::to_string(m.Elements[ 9]).substr(0, 8) << ", "
+        << std::to_string(m.Elements[13]).substr(0, 8) << "]\n["
+        << std::to_string(m.Elements[ 2]).substr(0, 8) << ", "
+        << std::to_string(m.Elements[ 6]).substr(0, 8) << ", "
+        << std::to_string(m.Elements[10]).substr(0, 8) << ", "
+        << std::to_string(m.Elements[14]).substr(0, 8) << "]\n["
+        << std::to_string(m.Elements[ 3]).substr(0, 8) << ", "
+        << std::to_string(m.Elements[ 7]).substr(0, 8) << ", "
+        << std::to_string(m.Elements[11]).substr(0, 8) << ", "
+        << std::to_string(m.Elements[15]).substr(0, 8) << ']';
         return Stream;
     }
 }
