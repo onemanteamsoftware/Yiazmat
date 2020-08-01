@@ -383,17 +383,17 @@ namespace YZMT {
     }
     
     float mat4::Determinant() const {
-        vec3 v0 { Elements[1] , Elements[2] , Elements[3]  };
-        vec3 v1 { Elements[5] , Elements[6] , Elements[7]  };
-        vec3 v2 { Elements[9] , Elements[10], Elements[11] };
+        vec3 v0 { Elements[ 1], Elements[ 2], Elements[ 3] };
+        vec3 v1 { Elements[ 5], Elements[ 6], Elements[ 7] };
+        vec3 v2 { Elements[ 9], Elements[10], Elements[11] };
         vec3 v3 { Elements[13], Elements[14], Elements[15] };
         mat3 m0 { v1, v2, v3 };
         mat3 m1 { v0, v2, v3 };
         mat3 m2 { v0, v1, v3 };
         mat3 m3 { v0, v1, v2 };
-        float a { Elements[0]  * m0.Determinant() };
-        float b { Elements[4]  * m1.Determinant() };
-        float c { Elements[8]  * m2.Determinant() };
+        float a { Elements[ 0] * m0.Determinant() };
+        float b { Elements[ 4] * m1.Determinant() };
+        float c { Elements[ 8] * m2.Determinant() };
         float d { Elements[12] * m3.Determinant() };
         return { a - b + c - d };
     }
@@ -411,8 +411,8 @@ namespace YZMT {
         const vec3& b { reinterpret_cast<const vec3&>(Columns[1]) };
         const vec3& c { reinterpret_cast<const vec3&>(Columns[2]) };
         const vec3& d { reinterpret_cast<const vec3&>(Columns[3]) };
-        const float& x { Elements[3] };
-        const float& y { Elements[7] };
+        const float& x { Elements[ 3] };
+        const float& y { Elements[ 7] };
         const float& z { Elements[11] };
         const float& w { Elements[15] };
         vec3 s { a.Cross(b) };
@@ -438,8 +438,8 @@ namespace YZMT {
     
     mat4 mat4::Transpose() const {
         return mat4 {
-            vec4 { Elements[0], Elements[4], Elements[8] , Elements[12] },
-            vec4 { Elements[1], Elements[5], Elements[9] , Elements[13] },
+            vec4 { Elements[0], Elements[4], Elements[ 8], Elements[12] },
+            vec4 { Elements[1], Elements[5], Elements[ 9], Elements[13] },
             vec4 { Elements[2], Elements[6], Elements[10], Elements[14] },
             vec4 { Elements[3], Elements[7], Elements[11], Elements[15] }
         };
@@ -455,8 +455,8 @@ namespace YZMT {
     
     vec4 mat4::operator*(const vec4& v) const {
         return vec4 {
-            Elements[0] * v.x + Elements[4] * v.y + Elements[8]  * v.z + Elements[12] * v.w,
-            Elements[1] * v.x + Elements[5] * v.y + Elements[9]  * v.z + Elements[13] * v.w,
+            Elements[0] * v.x + Elements[4] * v.y + Elements[ 8] * v.z + Elements[12] * v.w,
+            Elements[1] * v.x + Elements[5] * v.y + Elements[ 9] * v.z + Elements[13] * v.w,
             Elements[2] * v.x + Elements[6] * v.y + Elements[10] * v.z + Elements[14] * v.w,
             Elements[3] * v.x + Elements[7] * v.y + Elements[11] * v.z + Elements[15] * v.w
         };
@@ -465,26 +465,26 @@ namespace YZMT {
     mat4 mat4::operator*(const mat4& m) const {
         return mat4 {
             vec4 {
-                Elements[0] * m.Elements[0] + Elements[4] * m.Elements[1] + Elements[8]  * m.Elements[2] + Elements[12] * m.Elements[3],
-                Elements[1] * m.Elements[0] + Elements[5] * m.Elements[1] + Elements[9]  * m.Elements[2] + Elements[13] * m.Elements[3],
-                Elements[2] * m.Elements[0] + Elements[6] * m.Elements[1] + Elements[10] * m.Elements[2] + Elements[14] * m.Elements[3],
-                Elements[3] * m.Elements[0] + Elements[7] * m.Elements[1] + Elements[11] * m.Elements[2] + Elements[15] * m.Elements[3]
+                Elements[0] * m.Elements[ 0] + Elements[4] * m.Elements[ 1] + Elements[ 8] * m.Elements[ 2] + Elements[12] * m.Elements[ 3],
+                Elements[1] * m.Elements[ 0] + Elements[5] * m.Elements[ 1] + Elements[ 9] * m.Elements[ 2] + Elements[13] * m.Elements[ 3],
+                Elements[2] * m.Elements[ 0] + Elements[6] * m.Elements[ 1] + Elements[10] * m.Elements[ 2] + Elements[14] * m.Elements[ 3],
+                Elements[3] * m.Elements[ 0] + Elements[7] * m.Elements[ 1] + Elements[11] * m.Elements[ 2] + Elements[15] * m.Elements[ 3]
             },
             vec4 {
-                Elements[0] * m.Elements[4] + Elements[4] * m.Elements[5] + Elements[8]  * m.Elements[6] + Elements[12] * m.Elements[7],
-                Elements[1] * m.Elements[4] + Elements[5] * m.Elements[5] + Elements[9]  * m.Elements[6] + Elements[13] * m.Elements[7],
-                Elements[2] * m.Elements[4] + Elements[6] * m.Elements[5] + Elements[10] * m.Elements[6] + Elements[14] * m.Elements[7],
-                Elements[3] * m.Elements[4] + Elements[7] * m.Elements[5] + Elements[11] * m.Elements[6] + Elements[15] * m.Elements[7]
+                Elements[0] * m.Elements[ 4] + Elements[4] * m.Elements[ 5] + Elements[ 8] * m.Elements[ 6] + Elements[12] * m.Elements[ 7],
+                Elements[1] * m.Elements[ 4] + Elements[5] * m.Elements[ 5] + Elements[ 9] * m.Elements[ 6] + Elements[13] * m.Elements[ 7],
+                Elements[2] * m.Elements[ 4] + Elements[6] * m.Elements[ 5] + Elements[10] * m.Elements[ 6] + Elements[14] * m.Elements[ 7],
+                Elements[3] * m.Elements[ 4] + Elements[7] * m.Elements[ 5] + Elements[11] * m.Elements[ 6] + Elements[15] * m.Elements[ 7]
             },
             vec4 {
-                Elements[0] * m.Elements[8] + Elements[4] * m.Elements[9] + Elements[8]  * m.Elements[10] + Elements[12] * m.Elements[11],
-                Elements[1] * m.Elements[8] + Elements[5] * m.Elements[9] + Elements[9]  * m.Elements[10] + Elements[13] * m.Elements[11],
-                Elements[2] * m.Elements[8] + Elements[6] * m.Elements[9] + Elements[10] * m.Elements[10] + Elements[14] * m.Elements[11],
-                Elements[3] * m.Elements[8] + Elements[7] * m.Elements[9] + Elements[11] * m.Elements[10] + Elements[15] * m.Elements[11]
+                Elements[0] * m.Elements[ 8] + Elements[4] * m.Elements[ 9] + Elements[ 8] * m.Elements[10] + Elements[12] * m.Elements[11],
+                Elements[1] * m.Elements[ 8] + Elements[5] * m.Elements[ 9] + Elements[ 9] * m.Elements[10] + Elements[13] * m.Elements[11],
+                Elements[2] * m.Elements[ 8] + Elements[6] * m.Elements[ 9] + Elements[10] * m.Elements[10] + Elements[14] * m.Elements[11],
+                Elements[3] * m.Elements[ 8] + Elements[7] * m.Elements[ 9] + Elements[11] * m.Elements[10] + Elements[15] * m.Elements[11]
             },
             vec4 {
-                Elements[0] * m.Elements[12] + Elements[4] * m.Elements[13] + Elements[8]  * m.Elements[14] + Elements[12] * m.Elements[15],
-                Elements[1] * m.Elements[12] + Elements[5] * m.Elements[13] + Elements[9]  * m.Elements[14] + Elements[13] * m.Elements[15],
+                Elements[0] * m.Elements[12] + Elements[4] * m.Elements[13] + Elements[ 8] * m.Elements[14] + Elements[12] * m.Elements[15],
+                Elements[1] * m.Elements[12] + Elements[5] * m.Elements[13] + Elements[ 9] * m.Elements[14] + Elements[13] * m.Elements[15],
                 Elements[2] * m.Elements[12] + Elements[6] * m.Elements[13] + Elements[10] * m.Elements[14] + Elements[14] * m.Elements[15],
                 Elements[3] * m.Elements[12] + Elements[7] * m.Elements[13] + Elements[11] * m.Elements[14] + Elements[15] * m.Elements[15]
             }
