@@ -1,62 +1,60 @@
-/*[YZMT]::[YZMT]::Quaternion.cpp*/
+/*[YZMT]::[YZMT]::Quaternion.inl*/
 /*github.com/onemanteamsoftware*/
-#include "Quaternion.hpp"
-
 #include <cmath>
 #include <string>
 
 #include "Functions.hpp"
 
 namespace YZMT {
-    Quaternion::Quaternion()
+    inline Quaternion::Quaternion()
         : x { 0.0f }, y { 0.0f }, z { 0.0f }, w { 0.0f } {
     }
     
-    Quaternion::Quaternion(const vec4& v)
+    inline Quaternion::Quaternion(const vec4& v)
         : x { v.x }, y { v.y }, z { v.z }, w { v.w } {
     }
     
-    Quaternion::Quaternion(const vec3& v, float w)
+    inline Quaternion::Quaternion(const vec3& v, float w)
         : x { v.x }, y { v.y }, z { v.z }, w { w } {
     }
     
-    Quaternion::Quaternion(float x, float y, float z, float w)
+    inline Quaternion::Quaternion(float x, float y, float z, float w)
         : x { x }, y { y }, z { z }, w { w } {
     }
     
-    Quaternion Quaternion::Identity() {
+    inline Quaternion Quaternion::Identity() {
         return Quaternion { 0.0f, 0.0f, 0.0f, 1.0f };
     }
     
-    Quaternion Quaternion::Rotate(float Angle, const vec3& v) {
+    inline Quaternion Quaternion::Rotate(float Angle, const vec3& v) {
         float Radians { ToRadians(Angle * 0.5f) };
         return Quaternion { v * std::sin(Radians), std::cos(Radians) };
     }
     
-    Quaternion Quaternion::RotateX(float Angle) {
+    inline Quaternion Quaternion::RotateX(float Angle) {
         float Radians { ToRadians(Angle * 0.5f) };
         return Quaternion { std::sin(Radians), 0.0f, 0.0f, std::cos(Radians) };
     }
     
-    Quaternion Quaternion::RotateY(float Angle) {
+    inline Quaternion Quaternion::RotateY(float Angle) {
         float Radians { ToRadians(Angle * 0.5f) };
         return Quaternion { 0.0f, std::sin(Radians), 0.0f, std::cos(Radians) };
     }
     
-    Quaternion Quaternion::RotateZ(float Angle) {
+    inline Quaternion Quaternion::RotateZ(float Angle) {
         float Radians { ToRadians(Angle * 0.5f) };
         return Quaternion { 0.0f, 0.0f, std::sin(Radians), std::cos(Radians) };
     }
     
-    Quaternion Quaternion::Conjugate() const {
+    inline Quaternion Quaternion::Conjugate() const {
         return Quaternion { -x, -y, -z, w };
     }
     
-    float Quaternion::Dot(const Quaternion& q) const {
+    inline float Quaternion::Dot(const Quaternion& q) const {
         return x * q.x + y * q.y + z * q.z + w * q.w;
     }
     
-    mat3 Quaternion::Get3x3Matrix() const {
+    inline mat3 Quaternion::Get3x3Matrix() const {
         mat3 Result {};
         Result.Elements[0 + 0 * 3] = 1.0f - 2.0f * (y * y + z * z);
         Result.Elements[1 + 0 * 3] = 2.0f * (x * y + z * w);
@@ -70,7 +68,7 @@ namespace YZMT {
         return Result;
     }
     
-    mat4 Quaternion::Get4x4Matrix() const {
+    inline mat4 Quaternion::Get4x4Matrix() const {
         mat4 Result {};
         Result.Elements[0 + 0 * 4] = 1.0f - 2.0f * (y * y + z * z);
         Result.Elements[1 + 0 * 4] = 2.0f * (x * y + z * w);
@@ -85,37 +83,37 @@ namespace YZMT {
         return Result;
     }
     
-    Quaternion Quaternion::Inverse() const {
+    inline Quaternion Quaternion::Inverse() const {
         return Conjugate() / (x * x + y * y + z * z + w * w);
     }
     
-    float Quaternion::Magnitude() const {
+    inline float Quaternion::Magnitude() const {
         return std::sqrt(x * x + y * y + z * z + w * w);
     }
     
-    Quaternion Quaternion::Normalize() const {
+    inline Quaternion Quaternion::Normalize() const {
         float m { Magnitude() };
         return Quaternion { x / m, y / m, z / m, w / m };
     }
     
-    vec3 Quaternion::Transform(const vec3& v) const {
+    inline vec3 Quaternion::Transform(const vec3& v) const {
         const vec3& qv { reinterpret_cast<const vec3&>(x) };
         return v * (w * w - qv.MagnitudeSquared()) + qv * (v.Dot(qv) * 2.0f) + qv.Cross(v) * (w * 2.0f);
     }
     
-    Quaternion Quaternion::operator-() const {
+    inline Quaternion Quaternion::operator-() const {
         return Quaternion { -x, -y, -z, -w };
     }
     
-    Quaternion Quaternion::operator*(float s) const {
+    inline Quaternion Quaternion::operator*(float s) const {
         return Quaternion { x * s, y * s, z * s, w * s };
     }
     
-    Quaternion operator*(float s, const Quaternion& q) {
+    inline Quaternion operator*(float s, const Quaternion& q) {
         return Quaternion { q.x * s, q.y * s, q.z * s, q.w * s };
     }
     
-    Quaternion Quaternion::operator*(const Quaternion& q) const {
+    inline Quaternion Quaternion::operator*(const Quaternion& q) const {
         return Quaternion {
             w * q.x + x * q.w + y * q.z - z * q.y,
             w * q.y - x * q.z + y * q.w + z * q.x,
@@ -124,31 +122,31 @@ namespace YZMT {
         };
     }
     
-    Quaternion Quaternion::operator/(float s) const {
+    inline Quaternion Quaternion::operator/(float s) const {
         return Quaternion { x / s, y / s, z / s, w / s };
     }
     
-    Quaternion operator/(float s, const Quaternion& q) {
+    inline Quaternion operator/(float s, const Quaternion& q) {
         return Quaternion { q.x / s, q.y / s, q.z / s, q.w / s };
     }
     
-    Quaternion Quaternion::operator+(const Quaternion& q) const {
+    inline Quaternion Quaternion::operator+(const Quaternion& q) const {
         return Quaternion { x + q.x, y + q.y, z + q.z, w + q.w };
     }
     
-    Quaternion Quaternion::operator-(const Quaternion& q) const {
+    inline Quaternion Quaternion::operator-(const Quaternion& q) const {
         return Quaternion { x - q.x, y - q.y, z - q.z, w - q.w };
     }
     
-    bool Quaternion::operator==(const Quaternion& q) const {
+    inline bool Quaternion::operator==(const Quaternion& q) const {
         return x == q.x && y == q.y && z == q.z && w == q.w;
     }
     
-    bool Quaternion::operator!=(const Quaternion& q) const {
+    inline bool Quaternion::operator!=(const Quaternion& q) const {
         return !(*this == q);
     }
     
-    Quaternion& Quaternion::operator*=(float s) {
+    inline Quaternion& Quaternion::operator*=(float s) {
         x *= s;
         y *= s;
         z *= s;
@@ -156,12 +154,12 @@ namespace YZMT {
         return *this;
     }
     
-    Quaternion& Quaternion::operator*=(const Quaternion& q) {
+    inline Quaternion& Quaternion::operator*=(const Quaternion& q) {
         *this = *this * q;
         return *this;
     }
     
-    Quaternion& Quaternion::operator/=(float s) {
+    inline Quaternion& Quaternion::operator/=(float s) {
         x /= s;
         y /= s;
         z /= s;
@@ -169,7 +167,7 @@ namespace YZMT {
         return *this;
     }
     
-    Quaternion& Quaternion::operator+=(const Quaternion& q) {
+    inline Quaternion& Quaternion::operator+=(const Quaternion& q) {
         x += q.x;
         y += q.y;
         z += q.z;
@@ -177,7 +175,7 @@ namespace YZMT {
         return *this;
     }
     
-    Quaternion& Quaternion::operator-=(const Quaternion& q) {
+    inline Quaternion& Quaternion::operator-=(const Quaternion& q) {
         x -= q.x;
         y -= q.y;
         z -= q.z;
@@ -185,7 +183,7 @@ namespace YZMT {
         return *this;
     }
     
-    std::ostream& operator<<(std::ostream& Stream, const Quaternion& q) {
+    inline std::ostream& operator<<(std::ostream& Stream, const Quaternion& q) {
         Stream << '('
         << std::to_string(q.w).substr(0, 8) << ", ("
         << std::to_string(q.x).substr(0, 8) << ", "

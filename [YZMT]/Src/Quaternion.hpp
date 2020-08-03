@@ -50,3 +50,5 @@ namespace YZMT {
     
     std::ostream& operator<<(std::ostream& Stream, const Quaternion& q);
 }
+
+#include "Quaternion.inl"
