@@ -24,9 +24,6 @@
     <ClCompile Include="Src\TestSuite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Vector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Functions.hpp">
@@ -41,5 +38,10 @@
     <ClInclude Include="Src\Vector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Src\Vector.inl">
+      <Filter>Header Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

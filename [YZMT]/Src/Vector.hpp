@@ -106,3 +106,5 @@ namespace YZMT {
     
     std::ostream& operator<<(std::ostream& Stream, const vec4& v);
 }
+
+#include "Vector.inl"
