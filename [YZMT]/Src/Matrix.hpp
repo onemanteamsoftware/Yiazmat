@@ -97,3 +97,5 @@ namespace YZMT {
     
     std::ostream& operator<<(std::ostream& Stream, const mat4& m);
 }
+
+#include "Matrix.inl"

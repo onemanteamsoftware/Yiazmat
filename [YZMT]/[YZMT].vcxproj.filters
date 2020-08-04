@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Src\Matrix.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Src\TestSuite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -37,6 +34,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Src\Matrix.inl">
+      <Filter>Header Files</Filter>
+    </None>
     <None Include="Src\Quaternion.inl">
       <Filter>Header Files</Filter>
     </None>

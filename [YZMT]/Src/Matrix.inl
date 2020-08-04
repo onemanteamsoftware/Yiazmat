@@ -1,33 +1,31 @@
-/*[YZMT]::[YZMT]::Matrix.cpp*/
+/*[YZMT]::[YZMT]::Matrix.inl*/
 /*github.com/onemanteamsoftware*/
-#include "Matrix.hpp"
-
 #include <cmath>
 #include <string>
 
 #include "Functions.hpp"
 
 namespace YZMT {
-    mat3::mat3()
+    inline mat3::mat3()
         : Elements { 0.0f } {
     }
     
-    mat3::mat3(float Diagonal)
+    inline mat3::mat3(float Diagonal)
         : Elements { 0.0f } {
         Elements[0 + 0 * 3] = Diagonal;
         Elements[1 + 1 * 3] = Diagonal;
         Elements[2 + 2 * 3] = Diagonal;
     }
     
-    mat3::mat3(const vec3& v0, const vec3& v1, const vec3& v2)
+    inline mat3::mat3(const vec3& v0, const vec3& v1, const vec3& v2)
         : Columns { v0, v1, v2 } {
     }
     
-    mat3 mat3::Identity() {
+    inline mat3 mat3::Identity() {
         return mat3 { 1.0f };
     }
     
-    mat3 mat3::Rotate(float Angle, const vec3& v) {
+    inline mat3 mat3::Rotate(float Angle, const vec3& v) {
         float Radians { ToRadians(Angle) };
         float c { std::cos(Radians) };
         float s { std::sin(Radians) };
@@ -45,7 +43,7 @@ namespace YZMT {
         return Result;
     }
     
-    mat3 mat3::RotateX(float Angle) {
+    inline mat3 mat3::RotateX(float Angle) {
         float Radians { ToRadians(Angle) };
         float c { std::cos(Radians) };
         float s { std::sin(Radians) };
@@ -58,7 +56,7 @@ namespace YZMT {
         return Result;
     }
     
-    mat3 mat3::RotateY(float Angle) {
+    inline mat3 mat3::RotateY(float Angle) {
         float Radians { ToRadians(Angle) };
         float c { std::cos(Radians) };
         float s { std::sin(Radians) };
@@ -71,7 +69,7 @@ namespace YZMT {
         return Result;
     }
     
-    mat3 mat3::RotateZ(float Angle) {
+    inline mat3 mat3::RotateZ(float Angle) {
         float Radians { ToRadians(Angle) };
         float c { std::cos(Radians) };
         float s { std::sin(Radians) };
@@ -84,7 +82,7 @@ namespace YZMT {
         return Result;
     }
     
-    mat3 mat3::Scale(const vec2& v) {
+    inline mat3 mat3::Scale(const vec2& v) {
         mat3 Result {};
         Result.Elements[0 + 0 * 3] = v.x;
         Result.Elements[1 + 1 * 3] = v.y;
@@ -92,7 +90,7 @@ namespace YZMT {
         return Result;
     }
     
-    mat3 mat3::Scale(float x, float y) {
+    inline mat3 mat3::Scale(float x, float y) {
         mat3 Result {};
         Result.Elements[0 + 0 * 3] = x;
         Result.Elements[1 + 1 * 3] = y;
@@ -100,21 +98,21 @@ namespace YZMT {
         return Result;
     }
     
-    mat3 mat3::Translate(const vec2& v) {
+    inline mat3 mat3::Translate(const vec2& v) {
         mat3 Result { 1.0f };
         Result.Elements[0 + 2 * 3] = v.x;
         Result.Elements[1 + 2 * 3] = v.y;
         return Result;
     }
     
-    mat3 mat3::Translate(float x, float y) {
+    inline mat3 mat3::Translate(float x, float y) {
         mat3 Result { 1.0f };
         Result.Elements[0 + 2 * 3] = x;
         Result.Elements[1 + 2 * 3] = y;
         return Result;
     }
     
-    float mat3::Determinant() const {
+    inline float mat3::Determinant() const {
         return {
             Elements[0] * (Elements[4] * Elements[8] - Elements[7] * Elements[5]) -
             Elements[3] * (Elements[1] * Elements[8] - Elements[7] * Elements[2]) +
@@ -122,7 +120,7 @@ namespace YZMT {
         };
     }
     
-    mat3 mat3::Inverse() const {
+    inline mat3 mat3::Inverse() const {
         vec3 r0 { Columns[1].Cross(Columns[2]) };
         vec3 r1 { Columns[2].Cross(Columns[0]) };
         vec3 r2 { Columns[0].Cross(Columns[1]) };
@@ -133,7 +131,7 @@ namespace YZMT {
         return mat3 { c0 * InvDet, c1 * InvDet, c2 * InvDet };
     }
     
-    mat3 mat3::Transpose() const {
+    inline mat3 mat3::Transpose() const {
         return mat3 {
             vec3 { Elements[0], Elements[3], Elements[6] },
             vec3 { Elements[1], Elements[4], Elements[7] },
@@ -141,15 +139,15 @@ namespace YZMT {
         };
     }
     
-    mat3 mat3::operator*(float s) const {
+    inline mat3 mat3::operator*(float s) const {
         return mat3 { Columns[0] * s, Columns[1] * s, Columns[2] * s };
     }
     
-    mat3 operator*(float s, const mat3& m) {
+    inline mat3 operator*(float s, const mat3& m) {
         return mat3 { m.Columns[0] * s, m.Columns[1] * s, m.Columns[2] * s };
     }
     
-    vec3 mat3::operator*(const vec3& v) const {
+    inline vec3 mat3::operator*(const vec3& v) const {
         return vec3 {
             Elements[0] * v.x + Elements[3] * v.y + Elements[6] * v.z,
             Elements[1] * v.x + Elements[4] * v.y + Elements[7] * v.z,
@@ -157,7 +155,7 @@ namespace YZMT {
         };
     }
     
-    mat3 mat3::operator*(const mat3& m) const {
+    inline mat3 mat3::operator*(const mat3& m) const {
         return mat3 {
             vec3 {
                 Elements[0] * m.Elements[0] + Elements[3] * m.Elements[1] + Elements[6] * m.Elements[2],
@@ -177,60 +175,60 @@ namespace YZMT {
         };
     }
     
-    mat3 mat3::operator/(float s) const {
+    inline mat3 mat3::operator/(float s) const {
         return mat3 { Columns[0] / s, Columns[1] / s, Columns[2] / s };
     }
     
-    mat3 mat3::operator+(const mat3& m) const {
+    inline mat3 mat3::operator+(const mat3& m) const {
         return mat3 { Columns[0] + m.Columns[0], Columns[1] + m.Columns[1], Columns[2] + m.Columns[2] };
     }
     
-    mat3 mat3::operator-(const mat3& m) const {
+    inline mat3 mat3::operator-(const mat3& m) const {
         return mat3 { Columns[0] - m.Columns[0], Columns[1] - m.Columns[1], Columns[2] - m.Columns[2] };
     }
     
-    bool mat3::operator==(const mat3& m) const {
+    inline bool mat3::operator==(const mat3& m) const {
         return Columns[0] == m.Columns[0] && Columns[1] == m.Columns[1] && Columns[2] == m.Columns[2];
     }
     
-    bool mat3::operator!=(const mat3& m) const {
+    inline bool mat3::operator!=(const mat3& m) const {
         return !(*this == m);
     }
     
-    mat3& mat3::operator*=(float s) {
+    inline mat3& mat3::operator*=(float s) {
         Columns[0] *= s;
         Columns[1] *= s;
         Columns[2] *= s;
         return *this;
     }
     
-    mat3& mat3::operator*=(const mat3& m) {
+    inline mat3& mat3::operator*=(const mat3& m) {
         *this = *this * m;
         return *this;
     }
     
-    mat3& mat3::operator/=(float s) {
+    inline mat3& mat3::operator/=(float s) {
         Columns[0] /= s;
         Columns[1] /= s;
         Columns[2] /= s;
         return *this;
     }
     
-    mat3& mat3::operator+=(const mat3& m) {
+    inline mat3& mat3::operator+=(const mat3& m) {
         Columns[0] += m.Columns[0];
         Columns[1] += m.Columns[1];
         Columns[2] += m.Columns[2];
         return *this;
     }
     
-    mat3& mat3::operator-=(const mat3& m) {
+    inline mat3& mat3::operator-=(const mat3& m) {
         Columns[0] -= m.Columns[0];
         Columns[1] -= m.Columns[1];
         Columns[2] -= m.Columns[2];
         return *this;
     }
     
-    std::ostream& operator<<(std::ostream& Stream, const mat3& m) {
+    inline std::ostream& operator<<(std::ostream& Stream, const mat3& m) {
         Stream << '['
         << std::to_string(m.Elements[0]).substr(0, 8) << ", "
         << std::to_string(m.Elements[3]).substr(0, 8) << ", "
@@ -244,11 +242,11 @@ namespace YZMT {
         return Stream;
     }
     
-    mat4::mat4()
+    inline mat4::mat4()
         : Elements { 0.0f } {
     }
     
-    mat4::mat4(float Diagonal)
+    inline mat4::mat4(float Diagonal)
         : Elements { 0.0f } {
         Elements[0 + 0 * 4] = Diagonal;
         Elements[1 + 1 * 4] = Diagonal;
@@ -256,15 +254,15 @@ namespace YZMT {
         Elements[3 + 3 * 4] = Diagonal;
     }
     
-    mat4::mat4(const vec4& v0, const vec4& v1, const vec4& v2, const vec4& v3)
+    inline mat4::mat4(const vec4& v0, const vec4& v1, const vec4& v2, const vec4& v3)
         : Columns { v0, v1, v2, v3 } {
     }
     
-    mat4 mat4::Identity() {
+    inline mat4 mat4::Identity() {
         return mat4 { 1.0f };
     }
     
-    mat4 mat4::Rotate(float Angle, const vec3& v) {
+    inline mat4 mat4::Rotate(float Angle, const vec3& v) {
         float Radians { ToRadians(Angle) };
         float c { std::cos(Radians) };
         float s { std::sin(Radians) };
@@ -283,7 +281,7 @@ namespace YZMT {
         return Result;
     }
     
-    mat4 mat4::RotateX(float Angle) {
+    inline mat4 mat4::RotateX(float Angle) {
         float Radians { ToRadians(Angle) };
         float c { std::cos(Radians) };
         float s { std::sin(Radians) };
@@ -297,7 +295,7 @@ namespace YZMT {
         return Result;
     }
     
-    mat4 mat4::RotateY(float Angle) {
+    inline mat4 mat4::RotateY(float Angle) {
         float Radians { ToRadians(Angle) };
         float c { std::cos(Radians) };
         float s { std::sin(Radians) };
@@ -311,7 +309,7 @@ namespace YZMT {
         return Result;
     }
     
-    mat4 mat4::RotateZ(float Angle) {
+    inline mat4 mat4::RotateZ(float Angle) {
         float Radians { ToRadians(Angle) };
         float c { std::cos(Radians) };
         float s { std::sin(Radians) };
@@ -325,7 +323,7 @@ namespace YZMT {
         return Result;
     }
     
-    mat4 mat4::Scale(const vec3& v) {
+    inline mat4 mat4::Scale(const vec3& v) {
         mat4 Result {};
         Result.Elements[0 + 0 * 4] = v.x;
         Result.Elements[1 + 1 * 4] = v.y;
@@ -334,7 +332,7 @@ namespace YZMT {
         return Result;
     }
     
-    mat4 mat4::Scale(float x, float y, float z) {
+    inline mat4 mat4::Scale(float x, float y, float z) {
         mat4 Result {};
         Result.Elements[0 + 0 * 4] = x;
         Result.Elements[1 + 1 * 4] = y;
@@ -343,7 +341,7 @@ namespace YZMT {
         return Result;
     }
     
-    mat4 mat4::Translate(const vec3& v) {
+    inline mat4 mat4::Translate(const vec3& v) {
         mat4 Result { 1.0f };
         Result.Elements[0 + 3 * 4] = v.x;
         Result.Elements[1 + 3 * 4] = v.y;
@@ -351,7 +349,7 @@ namespace YZMT {
         return Result;
     }
     
-    mat4 mat4::Translate(float x, float y, float z) {
+    inline mat4 mat4::Translate(float x, float y, float z) {
         mat4 Result { 1.0f };
         Result.Elements[0 + 3 * 4] = x;
         Result.Elements[1 + 3 * 4] = y;
@@ -359,7 +357,7 @@ namespace YZMT {
         return Result;
     }
     
-    mat4 mat4::Orthographic(float Left, float Right, float Bottom, float Top, float Near, float Far) {
+    inline mat4 mat4::Orthographic(float Left, float Right, float Bottom, float Top, float Near, float Far) {
         mat4 Result {};
         Result.Elements[0 + 0 * 4] = 2.0f / (Right - Left);
         Result.Elements[1 + 1 * 4] = 2.0f / (Top - Bottom);
@@ -371,7 +369,7 @@ namespace YZMT {
         return Result;
     }
     
-    mat4 mat4::Perspective(float FOV, float Aspect, float Near, float Far) {
+    inline mat4 mat4::Perspective(float FOV, float Aspect, float Near, float Far) {
         float q { 1.0f / std::tan(ToRadians(FOV * 0.5f)) };
         mat4 Result {};
         Result.Elements[0 + 0 * 4] = q / Aspect;
@@ -382,7 +380,7 @@ namespace YZMT {
         return Result;
     }
     
-    float mat4::Determinant() const {
+    inline float mat4::Determinant() const {
         vec3 v0 { Elements[ 1], Elements[ 2], Elements[ 3] };
         vec3 v1 { Elements[ 5], Elements[ 6], Elements[ 7] };
         vec3 v2 { Elements[ 9], Elements[10], Elements[11] };
@@ -398,7 +396,7 @@ namespace YZMT {
         return { a - b + c - d };
     }
     
-    mat3 mat4::GetSubMatrix() const {
+    inline mat3 mat4::GetSubMatrix() const {
         return mat3 {
             vec3 { Columns[0].x, Columns[0].y, Columns[0].z },
             vec3 { Columns[1].x, Columns[1].y, Columns[1].z },
@@ -406,7 +404,7 @@ namespace YZMT {
         };
     }
     
-    mat4 mat4::Inverse() const {
+    inline mat4 mat4::Inverse() const {
         const vec3& a { reinterpret_cast<const vec3&>(Columns[0]) };
         const vec3& b { reinterpret_cast<const vec3&>(Columns[1]) };
         const vec3& c { reinterpret_cast<const vec3&>(Columns[2]) };
@@ -436,7 +434,7 @@ namespace YZMT {
         };
     }
     
-    mat4 mat4::Transpose() const {
+    inline mat4 mat4::Transpose() const {
         return mat4 {
             vec4 { Elements[0], Elements[4], Elements[ 8], Elements[12] },
             vec4 { Elements[1], Elements[5], Elements[ 9], Elements[13] },
@@ -445,15 +443,15 @@ namespace YZMT {
         };
     }
     
-    mat4 mat4::operator*(float s) const {
+    inline mat4 mat4::operator*(float s) const {
         return mat4 { Columns[0] * s, Columns[1] * s, Columns[2] * s, Columns[3] * s };
     }
     
-    mat4 operator*(float s, const mat4& m) {
+    inline mat4 operator*(float s, const mat4& m) {
         return mat4 { m.Columns[0] * s, m.Columns[1] * s, m.Columns[2] * s, m.Columns[3] * s };
     }
     
-    vec4 mat4::operator*(const vec4& v) const {
+    inline vec4 mat4::operator*(const vec4& v) const {
         return vec4 {
             Elements[0] * v.x + Elements[4] * v.y + Elements[ 8] * v.z + Elements[12] * v.w,
             Elements[1] * v.x + Elements[5] * v.y + Elements[ 9] * v.z + Elements[13] * v.w,
@@ -462,7 +460,7 @@ namespace YZMT {
         };
     }
     
-    mat4 mat4::operator*(const mat4& m) const {
+    inline mat4 mat4::operator*(const mat4& m) const {
         return mat4 {
             vec4 {
                 Elements[0] * m.Elements[ 0] + Elements[4] * m.Elements[ 1] + Elements[ 8] * m.Elements[ 2] + Elements[12] * m.Elements[ 3],
@@ -491,27 +489,27 @@ namespace YZMT {
         };
     }
     
-    mat4 mat4::operator/(float s) const {
+    inline mat4 mat4::operator/(float s) const {
         return mat4 { Columns[0] / s, Columns[1] / s, Columns[2] / s, Columns[3] / s };
     }
     
-    mat4 mat4::operator+(const mat4& m) const {
+    inline mat4 mat4::operator+(const mat4& m) const {
         return mat4 { Columns[0] + m.Columns[0], Columns[1] + m.Columns[1], Columns[2] + m.Columns[2], Columns[3] + m.Columns[3] };
     }
     
-    mat4 mat4::operator-(const mat4& m) const {
+    inline mat4 mat4::operator-(const mat4& m) const {
         return mat4 { Columns[0] - m.Columns[0], Columns[1] - m.Columns[1], Columns[2] - m.Columns[2], Columns[3] - m.Columns[3] };
     }
     
-    bool mat4::operator==(const mat4& m) const {
+    inline bool mat4::operator==(const mat4& m) const {
         return Columns[0] == m.Columns[0] && Columns[1] == m.Columns[1] && Columns[2] == m.Columns[2] && Columns[3] == m.Columns[3];
     }
     
-    bool mat4::operator!=(const mat4& m) const {
+    inline bool mat4::operator!=(const mat4& m) const {
         return !(*this == m);
     }
     
-    mat4& mat4::operator*=(float s) {
+    inline mat4& mat4::operator*=(float s) {
         Columns[0] *= s;
         Columns[1] *= s;
         Columns[2] *= s;
@@ -519,12 +517,12 @@ namespace YZMT {
         return *this;
     }
     
-    mat4& mat4::operator*=(const mat4& m) {
+    inline mat4& mat4::operator*=(const mat4& m) {
         *this = *this * m;
         return *this;
     }
     
-    mat4& mat4::operator/=(float s) {
+    inline mat4& mat4::operator/=(float s) {
         Columns[0] /= s;
         Columns[1] /= s;
         Columns[2] /= s;
@@ -532,7 +530,7 @@ namespace YZMT {
         return *this;
     }
     
-    mat4& mat4::operator+=(const mat4& m) {
+    inline mat4& mat4::operator+=(const mat4& m) {
         Columns[0] += m.Columns[0];
         Columns[1] += m.Columns[1];
         Columns[2] += m.Columns[2];
@@ -540,7 +538,7 @@ namespace YZMT {
         return *this;
     }
     
-    mat4& mat4::operator-=(const mat4& m) {
+    inline mat4& mat4::operator-=(const mat4& m) {
         Columns[0] -= m.Columns[0];
         Columns[1] -= m.Columns[1];
         Columns[2] -= m.Columns[2];
@@ -548,7 +546,7 @@ namespace YZMT {
         return *this;
     }
     
-    std::ostream& operator<<(std::ostream& Stream, const mat4& m) {
+    inline std::ostream& operator<<(std::ostream& Stream, const mat4& m) {
         Stream << '['
         << std::to_string(m.Elements[ 0]).substr(0, 8) << ", "
         << std::to_string(m.Elements[ 4]).substr(0, 8) << ", "
